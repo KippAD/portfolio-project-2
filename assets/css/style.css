@@ -88,3 +88,35 @@ a {
 #home-button:hover {
   color: #D6D6D6;
 }
+
+/* Social media links */
+
+.social-media {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  list-style-type: none;
+}
+
+.social-media i {
+  font-size: 4rem;
+  transition: ease 0.3s;
+}
+
+.social-media > li {
+  padding: 20px;
+  display: inline-block;
+}
+
+.social-media i:hover {
+  color: #D6D6D6;
+}
+
+/* General classes */
+
+.line {
+  display: block;
+  width: 80%;
+  margin: 25px auto;
+  border-bottom: 1px solid black;
+}
