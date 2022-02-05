@@ -4,18 +4,17 @@ const playBtn = buttons[0];
 const rulesBtn = buttons[1];
 const scoresBtn = buttons[2];
 
-// Event listeners for buttons on main menu to take to different game pages
+// Event listeners for buttons on main menu
 playBtn.addEventListener('click', enterUsername);
 
-// Game area is manipulated throughout the game
 const gameArea = document.getElementById('game-area');
 
 // Empty variables for later reassignment
 let username = localStorage.getItem('username');
+let difficulty;
+let questionDifficulty;
 
-/**
-* Takes user to input where username is stored in local storage
-*/
+/** Takes user to input where username is stored in local storage */
 function enterUsername() {
   if (!username) {
     gameArea.innerHTML = `
@@ -31,9 +30,7 @@ function enterUsername() {
   }; 
 };
 
-/**
-* Shows html area where user selects a difficulty
-*/
+/** Shows html area where user selects a difficulty */
 function selectDifficulty() {
   gameArea.innerHTML = `
     <div class="username-container">
@@ -56,7 +53,22 @@ function selectDifficulty() {
   // 'Not you?' text that clears local storage and reloads enter username page
   document.getElementById('clear-username').addEventListener('click', clearLocalStorage);
   // Submit button to load game area with selected difficulty
-  document.getElementById('play-btn').addEventListener('click', runGame);
+  document.getElementById('play-btn').addEventListener('click', setQuestionDifficulty);
+};
+
+/** Selects which array to draw questions from depending on selected difficulty */
+function setQuestionDifficulty() {
+  difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
+
+  if (difficultySelection === "easy") {
+    questionDifficulty = [...easyQuestions];
+  } else if (difficultySelection === "normal") {
+    questionDifficulty = [...normalQuestions];
+  } else if (difficultySelection === "hard") {
+    questionDifficulty = [...hardQuestions];
+  };
+
+  runGame();
 };
 
 function runGame() {
@@ -74,9 +86,7 @@ function runGame() {
   `;
 }
 
-/** Checks form validity and stores username in local storage upon submission
-*
- */
+/** Checks form validity and stores username in local storage upon submission */
 function storeUsername() {
   let form = document.getElementById('username-form');
   if (form.checkValidity()) {
