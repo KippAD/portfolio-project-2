@@ -20,6 +20,8 @@ let answer;
 let scoreCounter = 0;
 let questionCounter = 1;
 let displayAnswer;
+let randomIndex = [];
+
 
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
@@ -108,18 +110,31 @@ function nextQuestion() {
 /** Sets the html substitution values in game area */
 function populateQuestion() {
   // Populates answer buttons with random answer from array
-  answerButtons = Array.from(answerButtons);
-  for (answerButton of answerButtons) {
-    answerButton.innerHTML = questionDifficulty[Math.floor(Math.random()* questionDifficulty.length)].answer;
-  };
+  generateIndex();
+  generateAnswers();
+  
   question = questionDifficulty[i].question;
   answer = questionDifficulty[i].answer;
-  // Replaces inner html of random answer box with correct answer
+  // Replaces inner html of random answer box with correct answer 
+  
+  // Check through and only execute if panel isnt already there
   answerButtons[Math.floor(Math.random() * 4)].innerHTML = answer;
 
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
   document.getElementById('scoreCounter').innerHTML = scoreCounter;
+}
+
+/** Fills answer buttons inner HTML with random values */
+function generateAnswers() {
+  // Populates answer buttons with random answer from array
+  answerButtons = Array.from(answerButtons);
+  let n = 0;
+  for (answerButton of answerButtons) {
+    let j = randomIndex[n];
+    answerButton.innerHTML = questionDifficulty[j].answer;
+    n++;
+  };
 }
 
 /** Checks if answer is correct or incorrect and loads next question */
@@ -177,3 +192,29 @@ function clearLocalStorage() {
   enterUsername();
 };
 
+function generateAnswers() {
+  // Populates answer buttons with random answer from array
+  answerButtons = Array.from(answerButtons);
+  let n = 0;
+  for (answerButton of answerButtons) {
+    let j = randomIndex[n];
+    answerButton.innerHTML = questionDifficulty[j].answer;
+    n++;
+  };
+}
+
+/** Randomly generates an array of four numbers that generateAnswers
+* function will use to assign values to answer buttons.
+*/
+function generateIndex() {
+  let j = 0;
+  randomIndex = [];
+  for (j = 0; j <= 3; j++) {
+    let num = Math.floor(Math.random()* questionDifficulty.length);
+    if (randomIndex.includes(num)) {
+      num = Math.floor(Math.random()* questionDifficulty.length);
+    };
+    randomIndex.push(num);
+  };  
+  return randomIndex
+};
