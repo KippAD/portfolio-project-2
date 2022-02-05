@@ -19,11 +19,11 @@ let username = localStorage.getItem('username');
 function enterUsername() {
   if (!username) {
     gameArea.innerHTML = `
-      <div id="username-div">
-        <label for="username">Please enter a Username:</label><br>
-        <input id="username" type="text" placeholder="Enter your username here..." required>
-        <button type="submit" id="submit" class="submit btn">Submit <i class="fas fa-arrow-right"></i></button>
-      </div>
+      <form action="" id="username-form" method="post">  
+          <label for="username">Please enter a Username:</label><br>
+          <input id="username" type="text" placeholder="Enter your username here..." required>
+          <button type="submit" id="submit" class="btn">Submit <i class="fas fa-arrow-right"></i></button>
+      </form>
     `;
     document.getElementById('submit').addEventListener('click', storeUsername);
   } else {
@@ -63,15 +63,18 @@ function runGame() {
   gameArea.innerHTML = ``;
 }
 
-/** Stores username in local storage upon submission
+/** Checks form validity and stores username in local storage upon submission
+*
  */
 function storeUsername() {
-  username = document.getElementById('username').value;
-  localStorage.setItem("username", username);
-  console.log(localStorage);
-
-  selectDifficulty();
-}
+  let form = document.getElementById('username-form');
+  if (form.checkValidity()) {
+    username = document.getElementById('username').value;
+    localStorage.setItem('username', username);
+    console.log(localStorage);
+    selectDifficulty();
+  } 
+};
 
 /** Clears storage and assigns username to falsey value form local storage */
 function clearLocalStorage() {
