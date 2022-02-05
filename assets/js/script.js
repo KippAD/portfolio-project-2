@@ -60,7 +60,18 @@ function selectDifficulty() {
 };
 
 function runGame() {
-  gameArea.innerHTML = ``;
+  gameArea.innerHTML = `
+    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12</h2>
+    <p>Which of the following cities is the capital of <span id="questionSub"></span>?</p>
+    <div class="answer-container">  
+      <button class="answer-btn btn">Answer1</button>
+      <button class="answer-btn btn">Answer2</button>
+      <button class="answer-btn btn">Answer3</button>
+      <button class="answer-btn btn">Answer4</button>
+    </div> 
+    <p>Current Score: <span id="scoreCounter"></span></p>
+    <p>High Score: <span id="highScoreCounter">0</span></p>
+  `;
 }
 
 /** Checks form validity and stores username in local storage upon submission

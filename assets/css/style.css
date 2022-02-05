@@ -77,6 +77,7 @@ main {
 #game-area > h2 {
   font-size: 2.5rem;
   text-align: center;
+  margin-bottom: 12.5px;
 }
 
 /* Enter username page styles  */
@@ -156,15 +157,36 @@ main {
   display: none;
 }
 
+/* Run game area */
+
+.answer-container {
+  width: 60%;
+}
+
+#game-area > p { 
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+#game-area > p > span {
+  font-size: 2rem;
+}
+
+.answer-btn {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 3rem;
+}
+
 /* Button styles accross game */
 
 .btn {
   background-color: #4B5842;
   color: white;
   border-radius: 10px;
-  font-family: Inconsolata;
   font-weight: 700;
-  font-size: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 12.5px;
