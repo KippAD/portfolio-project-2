@@ -11,7 +11,6 @@ const gameArea = document.getElementById('game-area');
 
 let answerButtons = document.getElementsByClassName('answer-btn');
 
-
 // General variables
 let username = localStorage.getItem('username');
 let difficulty;
@@ -20,6 +19,7 @@ let question;
 let answer;
 let scoreCounter = 0;
 let questionCounter = 1;
+let displayAnswer;
 
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
@@ -122,20 +122,41 @@ function populateQuestion() {
   document.getElementById('scoreCounter').innerHTML = scoreCounter;
 }
 
+/** Checks if answer is correct or incorrect and loads next question */
 function checkAnswer() {
   answerButtons.forEach(answerButton => {
     answerButton.addEventListener('click', function () {
       if (answerButton.innerHTML === answer) {
-        alert('correct');
-        scoreCounter +=1;
-        nextQuestion();
+        scoreCounter += 1;
+        showAnswer();
       } else {
-        alert('incorrect');
-        nextQuestion();
+        answerButton.style.backgroundColor = "#C32F27";
+        showAnswer();
       };
     });
   });
 };
+
+/** Highlights correct answer green */
+function showAnswer() {
+  for (answerButton of answerButtons)
+    if (answerButton.innerHTML === answer) {
+      answerButton.style.backgroundColor = "#4CB963";
+      setTimeout(() => {
+	      answerButton.style.backgroundColor = "#4B5842";
+        resetColors();
+        nextQuestion();
+   }, 2000);
+  };
+};
+
+/** Ensures that the answer btn colors reset as each question is loaded */
+function resetColors() {
+  answerButtons.forEach(answerButton => {
+    answerButton.style.backgroundColor = "#4B5842";
+  });   
+};
+
 
 /** Checks form validity and stores username in local storage upon submission */
 function storeUsername() {
