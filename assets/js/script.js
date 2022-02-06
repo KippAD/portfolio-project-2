@@ -6,9 +6,8 @@ const scoresBtn = buttons[2];
 
 // Event listeners for buttons on main menu
 playBtn.addEventListener('click', enterUsername);
+rulesBtn.addEventListener('click', loadRules);
 
-const gameArea = document.getElementById('game-area');
-let answerButtons = document.getElementsByClassName('answer-btn');
 
 // High scores 
 let easyHighScore = localStorage.getItem('easyHighScore');
@@ -27,6 +26,8 @@ let questionCounter = 1;
 let displayAnswer;
 let randomIndex = [];
 let answerExists;
+const gameArea = document.getElementById('game-area');
+let answerButtons = document.getElementsByClassName('answer-btn');
 
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
@@ -107,6 +108,18 @@ function runGame() {
   nextQuestion();
   checkAnswer();
 };
+
+function loadRules() {
+  gameArea.innerHTML = `
+    <div class="rules-div">
+      <p>Welcome to the Capitals of the World Quiz, here's how it all works:</p>
+      <p>Simply click play, enter a username and choose a difficulty.</p>
+      <p>To unlock harder quiz difficulties answer 9 or more correctly on the preceeding difficulty.</p>
+      <button id="rules-play" class="menu-btn btn">Play</button>
+    </div
+  `;
+  document.getElementById('rules-play').addEventListener('click', enterUsername);
+}
 
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
@@ -277,7 +290,6 @@ function generateAnswers() {
     n++;
   };
 };
-
 
 /** Randomly generates an array of four numbers that generateAnswers
 * function will use to assign values to answer buttons.
