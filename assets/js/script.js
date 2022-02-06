@@ -7,7 +7,7 @@ const scoresBtn = buttons[2];
 // Event listeners for buttons on main menu
 playBtn.addEventListener('click', enterUsername);
 rulesBtn.addEventListener('click', loadRules);
-
+scoresBtn.addEventListener('click', loadScores)
 
 // High scores 
 let easyHighScore = localStorage.getItem('easyHighScore');
@@ -68,7 +68,9 @@ function selectDifficulty() {
     <button type="submit" id="play-btn" class="btn">Play <i class="fas fa-arrow-right"></i></button>
   `;
   // 'Not you?' text that clears local storage and reloads enter username page
-  document.getElementById('clear-username').addEventListener('click', clearLocalStorage);
+  modalType = "wipeModal";
+  loadPage = "username";
+  document.getElementById('clear-username').addEventListener('click', showModal);
   // Submit button to load game area with selected difficulty
   document.getElementById('play-btn').addEventListener('click', setQuestionDifficulty);
 };
@@ -119,6 +121,25 @@ function loadRules() {
     </div
   `;
   document.getElementById('rules-play').addEventListener('click', enterUsername);
+}
+
+function loadScores() {
+  if (!localStorage.getItem('username')) {
+    alert('Sorry, you need to log a username before checking your scores!')
+  } else {
+  gameArea.innerHTML = `
+    <div class="rules-div">
+      <p>Hello ${localStorage.getItem('username')}! Here are your high scores!</p>
+      <p>Easy Quiz: ${localStorage.getItem('easyHighScore')}</p>
+      <p>Normal Quiz: ${localStorage.getItem('normalHighScore')}</p>
+      <p>Hard Quiz: ${localStorage.getItem('hardHighScore')}</p>
+      <button id="clearRecord" class="menu-btn btn">Clear Record</button>
+    </div>
+  `;
+  };
+  modalType = "wipeModal";
+  loadPage = "home";
+  document.getElementById('clearRecord').addEventListener('click', showModal);
 }
 
 /** Sets all counters and ensures game area populated with question */
@@ -271,13 +292,6 @@ function storeUsername() {
     selectDifficulty();
   }; 
   return username;
-};
-
-/** Clears storage and assigns username to falsey value form local storage */
-function clearLocalStorage() {
-  localStorage.clear();
-  username = localStorage.getItem('username');
-  enterUsername();
 };
 
 function generateAnswers() {

@@ -10,13 +10,14 @@ function showModal() {
   // Specifies which modal to display
   if (modalType === "endQuiz") {
     endQuizModal();
-  } else if (modalType === "clearModal") {
-    clearModal();
+  } else if (modalType === "wipeModal") {
+    wipeModal();
   } else if (modalType === "homeModal") {
     goHomeModal();
   };
 };
 
+/** Modal displayed upon quiz completion */
 function endQuizModal() {
   modal.style.backgroundColor = "white";
   modalTitle.innerHTML = "Quiz Complete!";
@@ -36,3 +37,35 @@ function endQuizModal() {
     `;
   }
 }
+
+/** Modal display when user attempts to clear data */
+function wipeModal() {
+  modal.style.backgroundColor = "white";
+  modal.style.color = "black";
+  modalTitle.innerHTML = "Are you sure?"
+  modalContent.innerHTML = `
+  <p>This action will clear all locally stored data, including high scores</p>
+  <p>Are your sure you want to continue?</p>
+  <button id="noBtn" class="btn">No</button>
+  <button id="yesBtn" class="btn">Yes</button>
+  `;
+  document.getElementById('noBtn').addEventListener('click', closeModal);
+  document.getElementById('yesBtn').addEventListener('click', clearLocalStorage);
+};
+
+/** Closes the modal */
+function closeModal() {
+  modal.style.display = 'none';
+};
+
+/** Clears storage and assigns username to falsey value form local storage */
+function clearLocalStorage() {
+  localStorage.clear();
+  username = localStorage.getItem('username')
+  if (loadPage === "home") {
+    document.location.reload(true);
+  } else if (loadPage === "username") {
+    enterUsername();
+  };
+  closeModal();
+};
