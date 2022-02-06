@@ -77,7 +77,7 @@ function setQuestionDifficulty() {
   } else if (difficultySelection === "hard") {
     questionDifficulty = [...hardQuestions];
   };
-  let i = 0;
+  shuffle(questionDifficulty);
   runGame();
 };
 
@@ -223,4 +223,19 @@ function generateIndex() {
     randomIndex.push(num);
   };  
   return randomIndex
+};
+
+/** Shuffle array before game begins to randomise question order */
+function shuffle(array) {
+  let newPosition;
+  let tempPosition;
+  // Loop starts at end of array and iterates down
+  for (let i = array.length - 1; i > 0; i--) {
+    newPosition = Math.floor(Math.random() * (i + 1));
+    // Exchanging the old index number with the newly generated one
+    tempPosition = array[i];
+    array[i] = array[newPosition];
+    array[newPosition] = tempPosition;
+  };
+  return array;
 };
