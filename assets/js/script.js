@@ -20,12 +20,11 @@ let username = localStorage.getItem('username');
 let difficulty;
 let questionDifficulty;
 let question;
-let answer;
+let correctAnswer;
 let scoreCounter = 0;
 let questionCounter = 1;
 let displayAnswer;
 let randomIndex = [];
-let answerExists;
 const gameArea = document.getElementById('game-area');
 let answerButtons = document.getElementsByClassName('answer-btn');
 
@@ -164,21 +163,13 @@ function nextQuestion() {
 
 /** Sets the html substitution values in game area */
 function populateQuestion() {
+  question = questionDifficulty[i].question;
+  correctAnswer = questionDifficulty[i].answer;
+
   // Populates answer buttons with random answer from array
   generateIndex();
   generateAnswers();
-  
-  question = questionDifficulty[i].question;
-  answer = questionDifficulty[i].answer;
-  // Stops answer appearing twice
-  for (answerButton of answerButtons) {
-    if (answerButton.innerHTML === answer) {
-      answerExists = true;
-    };
-  };
-  if (!answerExists) {
-    answerButtons[Math.floor(Math.random() * 4)].innerHTML = answer;
-  };
+
   document.getElementById('scoreCounter').innerHTML = scoreCounter;
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
@@ -200,7 +191,7 @@ function generateAnswers() {
 function checkAnswer() {
   answerButtons.forEach(answerButton => {
     answerButton.addEventListener('click', function () {
-      if (answerButton.innerHTML === answer) {
+      if (answerButton.innerHTML === correctAnswer) {
         correctAudio();
         scoreCounter += 1;
         showAnswer();
@@ -217,7 +208,7 @@ function checkAnswer() {
 /** Highlights correct answer green */
 function showAnswer() {
   for (answerButton of answerButtons)
-    if (answerButton.innerHTML === answer) {
+    if (answerButton.innerHTML === correctAnswer) {
       answerButton.style.backgroundColor = "#4CB963";
       setTimeout(() => {
 	      answerButton.style.backgroundColor = "#4B5842";
@@ -322,10 +313,16 @@ function generateAnswers() {
   // Populates answer buttons with random answer from array
   answerButtons = Array.from(answerButtons);
   let n = 0;
+  let currentAnswers = [];
   for (answerButton of answerButtons) {
-    let j = randomIndex[n];
-    answerButton.innerHTML = questionDifficulty[j].answer;
-    n++;
+      let j = randomIndex[n];
+      answerButton.innerHTML = questionDifficulty[j].answer;
+      currentAnswers.push(answerButton.innerHTML);
+      n++;
+  };
+  // Inserts correct answer if it does not exist already
+  if (!currentAnswers.includes(correctAnswer)) {
+    answerButtons[Math.floor(Math.random() * 4)].innerHTML = correctAnswer;
   };
 };
 
