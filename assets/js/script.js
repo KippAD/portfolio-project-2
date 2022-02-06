@@ -92,7 +92,7 @@ function setQuestionDifficulty() {
 
 function runGame() {
   gameArea.innerHTML = `
-    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12</h2>
+    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 4</h2>
     <p>Which of the following cities is the capital of <span id="question-sub"></span>?</p>
     <div class="answer-container">  
       <button class="answer-btn btn">Answer1</button>
@@ -110,7 +110,7 @@ function runGame() {
 
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
-  if (i <= 11) {
+  if (i <= 3) {
     setHighScoreCounter();
     // Ensures that the high score counter matches the current score value
     if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
@@ -119,6 +119,7 @@ function nextQuestion() {
     populateQuestion();
     questionCounter += 1;
   } else {
+    document.getElementById('scoreCounter').innerHTML = scoreCounter;
     modalType = "endQuiz";
     showModal();
     checkHighScore();
@@ -127,7 +128,6 @@ function nextQuestion() {
 
 /** Sets the html substitution values in game area */
 function populateQuestion() {
-  i++;
   // Populates answer buttons with random answer from array
   generateIndex();
   generateAnswers();
@@ -143,10 +143,9 @@ function populateQuestion() {
   if (!answerExists) {
     answerButtons[Math.floor(Math.random() * 4)].innerHTML = answer;
   };
-
+  document.getElementById('scoreCounter').innerHTML = scoreCounter;
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
-  document.getElementById('scoreCounter').innerHTML = scoreCounter;
 };
 
 /** Fills answer buttons inner HTML with random values */
@@ -174,6 +173,7 @@ function checkAnswer() {
         answerButton.style.backgroundColor = "#C32F27";
         showAnswer();
       };
+      i++;
     });
   });
 };
