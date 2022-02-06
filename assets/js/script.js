@@ -8,8 +8,13 @@ const scoresBtn = buttons[2];
 playBtn.addEventListener('click', enterUsername);
 
 const gameArea = document.getElementById('game-area');
-
 let answerButtons = document.getElementsByClassName('answer-btn');
+
+// High scores 
+let easyHighScore = localStorage.getItem('easyHighScore');
+let normalHighScore = localStorage.getItem('normalHighScore');
+let hardHighScore = localStorage.getItem('hardHighScore');
+
 
 // General variables
 let username = localStorage.getItem('username');
@@ -103,10 +108,17 @@ function runGame() {
 
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
-  if (questionCounter <= 12) {
+  if (questionCounter < 12) {
+    setHighScoreCounter();
+    // Ensures that the high score counter matches the current score value
+    if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
+      highScoreCounter.innerHTML = scoreCounter;
+    };
     populateQuestion();
     questionCounter += 1;
     i++;
+  } else {
+    checkHighScore();
   }
 };
 
@@ -175,6 +187,55 @@ function showAnswer() {
   };
 };
 
+/** Sets high score counter to local storage value */ 
+function setHighScoreCounter() {
+  let highScoreCounter = document.getElementById('highScoreCounter');
+
+  if (difficultySelection === 'easy') {
+    highScoreCounter.innerHTML = localStorage.getItem('easyHighScore')
+  } else if (difficultySelection === 'normal') {
+    highScoreCounter.innerHTML = localStorage.getItem('normalHighScore')
+  } else if (difficultySelection === 'hard') {
+    highScoreCounter.innerHTML = localStorage.getItem('hardHighScore')
+  };
+};
+
+/** Logs new high score if score counter exceeds it */ 
+function checkHighScore() {
+  if (difficultySelection === "easy" && scoreCounter > easyHighScore) {
+    easyHighScore = scoreCounter;
+    localStorage.setItem("easyHighScore", easyHighScore);
+    highScoreCounter.innerHTML = localStorage.getItem("easyHighScore");
+
+  } else if (difficultySelection === "normal" && scoreCounter > normalHighScore) {
+    normalHighScore = scoreCounter;
+    localStorage.setItem("normalHighScore", normalHighScore);
+    highScoreCounter.innerHTML = localStorage.getItem("normalHighScore");
+
+  } else if (difficultySelection === "hard" && scoreCounter > hardHighScore) {
+    hardHighScore = scoreCounter;
+    localStorage.setItem("hardHighScore", hardHighScore);
+    highScoreCounter.innerHTML = localStorage.getItem("hardHighScore");
+  };
+  return highScoreCounter;
+};
+
+/** Ensures high score is always a number */ 
+function convertHighScore() {
+ if (!easyHighScore) {
+    easyHighScore = 0;
+    localStorage.setItem("easyHighScore", easyHighScore);
+  };
+  if (!normalHighScore) {
+    normalHighScore = 0;
+    localStorage.setItem("normalHighScore", normalHighScore);
+  }; 
+  if (!hardHighScore) {
+    hardHighScore = 0;
+    localStorage.setItem("hardHighScore", hardHighScore);
+  };
+};
+
 /** Ensures that the answer btn colors reset as each question is loaded */
 function resetColors() {
   answerButtons.forEach(answerButton => {
@@ -189,7 +250,7 @@ function storeUsername() {
   if (form.checkValidity()) {
     username = document.getElementById('username').value;
     localStorage.setItem('username', username);
-    console.log(localStorage);
+    convertHighScore();
     selectDifficulty();
   }; 
   return username;
@@ -211,7 +272,7 @@ function generateAnswers() {
     answerButton.innerHTML = questionDifficulty[j].answer;
     n++;
   };
-}
+};
 
 /** Randomly generates an array of four numbers that generateAnswers
 * function will use to assign values to answer buttons.
@@ -243,3 +304,4 @@ function shuffle(array) {
   };
   return array;
 };
+
