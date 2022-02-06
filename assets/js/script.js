@@ -21,6 +21,7 @@ let scoreCounter = 0;
 let questionCounter = 1;
 let displayAnswer;
 let randomIndex = [];
+let answerExists;
 
 
 /** Takes user to input where username is stored in local storage */
@@ -115,10 +116,15 @@ function populateQuestion() {
   
   question = questionDifficulty[i].question;
   answer = questionDifficulty[i].answer;
-  // Replaces inner html of random answer box with correct answer 
-  
-  // Check through and only execute if panel isnt already there
-  answerButtons[Math.floor(Math.random() * 4)].innerHTML = answer;
+  // Stops answer appearing twice
+  for (answerButton of answerButtons) {
+    if (answerButton.innerHTML === answer) {
+      answerExists = true;
+    };
+  };
+  if (!answerExists) {
+    answerButtons[Math.floor(Math.random() * 4)].innerHTML = answer;
+  };
 
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
