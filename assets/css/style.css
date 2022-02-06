@@ -180,12 +180,60 @@ main {
   font-size: 3rem;
 }
 
+/* Modal styles */
+
+#modal {
+  display: none;
+  width: 30%;
+  border-radius: 15px;
+  box-shadow: gray 0px 0px 5px;
+  position: fixed;
+  top: 30%;
+  left: 35%;
+  overflow: hidden;
+  background-color: #7CDF64;
+  color: white;
+  font-weight: 2rem;
+  text-align: center;
+
+  animation: animationTop;
+  animation-duration: 0.4s;
+}
+
+#modalContent {
+  margin: 0 auto;
+  font-weight: 2rem;
+  padding-bottom: 12.5px;
+  text-align: center;
+  color: black;
+}
+
+#modal h3 {
+  font-size: 4rem;
+  font-weight: 900;
+  padding: 12.5px;
+  color: white;
+  background-color: #27213C;
+}
+
+#modalContent > p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 12.5px;
+}
+
+@keyframes animationTop {
+  from {top: -100px; opacity: 0}
+  to {top: 30%; opacity: 1}
+}
+
 /* Button styles accross game */
 
 .btn {
   background-color: #4B5842;
   color: white;
   border-radius: 10px;
+  font-size: 3rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;

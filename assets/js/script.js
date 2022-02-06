@@ -84,6 +84,8 @@ function setQuestionDifficulty() {
   } else if (difficultySelection === "hard") {
     questionDifficulty = [...hardQuestions];
   };
+  let i;
+  convertHighScore();
   shuffle(questionDifficulty);
   runGame();
 };
@@ -108,7 +110,7 @@ function runGame() {
 
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
-  if (questionCounter < 12) {
+  if (i <= 11) {
     setHighScoreCounter();
     // Ensures that the high score counter matches the current score value
     if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
@@ -116,14 +118,16 @@ function nextQuestion() {
     };
     populateQuestion();
     questionCounter += 1;
-    i++;
   } else {
+    modalType = "endQuiz";
+    showModal();
     checkHighScore();
   }
 };
 
 /** Sets the html substitution values in game area */
 function populateQuestion() {
+  i++;
   // Populates answer buttons with random answer from array
   generateIndex();
   generateAnswers();
@@ -274,6 +278,7 @@ function generateAnswers() {
   };
 };
 
+
 /** Randomly generates an array of four numbers that generateAnswers
 * function will use to assign values to answer buttons.
 */
@@ -287,6 +292,7 @@ function generateIndex() {
     };
     randomIndex.push(num);
   };  
+  console.log(randomIndex);
   return randomIndex
 };
 
