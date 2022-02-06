@@ -67,6 +67,8 @@ function selectDifficulty() {
     </div>
     <button type="submit" id="play-btn" class="btn">Play <i class="fas fa-arrow-right"></i></button>
   `;
+  // Checks if difficulty is unlocked
+  difficultyUnlocked();
   // 'Not you?' text that clears local storage and reloads enter username page
   modalType = "wipeModal";
   loadPage = "username";
@@ -95,7 +97,7 @@ function setQuestionDifficulty() {
 
 function runGame() {
   gameArea.innerHTML = `
-    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 4</h2>
+    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12</h2>
     <p>Which of the following cities is the capital of <span id="question-sub"></span>?</p>
     <div class="answer-container">  
       <button class="answer-btn btn">Answer1</button>
@@ -144,7 +146,7 @@ function loadScores() {
 
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
-  if (i <= 3) {
+  if (i <= 11) {
     setHighScoreCounter();
     // Ensures that the high score counter matches the current score value
     if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
@@ -273,6 +275,28 @@ function convertHighScore() {
     localStorage.setItem("hardHighScore", hardHighScore);
   };
 };
+
+/*
+* Disables normal and hard difficulty if high scores aren't above 9
+* and displays padlock icon
+*/
+function difficultyUnlocked() {
+  let normalInput = document.getElementById('normalDifficulty');
+  let hardInput = document.getElementById('hardDifficulty');
+
+  let padlockIcon = document.getElementsByClassName('lockIcon');
+
+  if (localStorage.getItem('easyHighScore') < 9) {
+    normalInput.type = "button";
+    padlockIcon[0].style.display = "inline-block";
+  }; 
+
+  if (localStorage.getItem('normalHighScore') < 9) {
+    hardInput.type = "button";
+    padlockIcon[1].style.display = "inline-block";
+  }; 
+};
+
 
 /** Ensures that the answer btn colors reset as each question is loaded */
 function resetColors() {

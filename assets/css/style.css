@@ -157,6 +157,10 @@ main {
   display: none;
 }
 
+.lockIcon > i {
+  font-size: 3rem;
+}
+
 /* Run game area */
 
 .answer-container {
@@ -251,7 +255,7 @@ main {
   padding: 12.5px;
 }
 
-.btn:hover {
+.btn:hover, .answer-btn:hover {
   background-color: #404D64;
 }
 
