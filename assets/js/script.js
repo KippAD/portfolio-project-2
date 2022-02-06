@@ -23,9 +23,9 @@ let displayAnswer;
 let randomIndex = [];
 let answerExists;
 
-
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
+  clickAudio();
   if (!username) {
     gameArea.innerHTML = `
       <form action="" id="username-form" method="post">  
@@ -42,6 +42,7 @@ function enterUsername() {
 
 /** Shows html area where user selects a difficulty */
 function selectDifficulty() {
+  clickAudio();
   gameArea.innerHTML = `
     <div class="username-container">
       <h2>Welcome ${username}! Please select a game difficulty:</h2>
@@ -68,6 +69,7 @@ function selectDifficulty() {
 
 /** Selects which array to draw questions from depending on selected difficulty */
 function setQuestionDifficulty() {
+  clickAudio();
   difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
 
   if (difficultySelection === "easy") {
@@ -129,7 +131,7 @@ function populateQuestion() {
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
   document.getElementById('scoreCounter').innerHTML = scoreCounter;
-}
+};
 
 /** Fills answer buttons inner HTML with random values */
 function generateAnswers() {
@@ -141,16 +143,18 @@ function generateAnswers() {
     answerButton.innerHTML = questionDifficulty[j].answer;
     n++;
   };
-}
+};
 
 /** Checks if answer is correct or incorrect and loads next question */
 function checkAnswer() {
   answerButtons.forEach(answerButton => {
     answerButton.addEventListener('click', function () {
       if (answerButton.innerHTML === answer) {
+        correctAudio();
         scoreCounter += 1;
         showAnswer();
       } else {
+        incorrectAudio();
         answerButton.style.backgroundColor = "#C32F27";
         showAnswer();
       };
@@ -178,9 +182,9 @@ function resetColors() {
   });   
 };
 
-
 /** Checks form validity and stores username in local storage upon submission */
 function storeUsername() {
+  clickAudio();
   let form = document.getElementById('username-form');
   if (form.checkValidity()) {
     username = document.getElementById('username').value;

@@ -210,6 +210,7 @@ main {
 }
 
 #home-button, #sound-icon  {
+  width: 5%;
   display: inline-block;
   color: #ffffff;
   cursor: pointer;
