@@ -307,6 +307,10 @@ main {
   font-size: 2rem;
 }
 
+#reset-quiz {
+  cursor: pointer;
+}
+
 /* Social media links */
 .social-media {
   width: 80%;

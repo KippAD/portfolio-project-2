@@ -29,13 +29,18 @@ function endQuizModal() {
     <button id="menu-btn" class="btn">Main Menu</button>
     <button id="next-quiz" class="btn">Next Quiz</button>
     `;
+    document.getElementById('next-quiz').addEventListener('click', refreshPage);
   } else {
     modalContent.innerHTML = `
     <p>Well done on completing the ${difficultySelection} quiz, you scored ${scoreCounter} out of 12.</p>
     <p id="nextQuizText"></p>
-    <button id="next-btn" class="btn">Main Menu</button>
+    <button id="menu-btn" class="btn">Main Menu</button>
+    <button id="reset-quiz" class="btn">Try Again</button>
     `;
   }
+  document.getElementById('menu-btn').addEventListener('click', refreshPage);
+  document.getElementById('reset-quiz').addEventListener('click', refreshPage);
+
 }
 
 /** Modal display when user attempts to clear data */
@@ -67,6 +72,13 @@ function goHomeModal() {
   document.getElementById('noBtn').addEventListener('click', closeModal);
   document.getElementById('yesBtn').addEventListener('click', refreshPage)
 }
+
+// function startNextQuiz() {
+//   difficultySelection = "normal";
+//   setQuestionDifficulty();
+//   refreshPage();
+//   closeModal();
+// }
 
 /** Closes the modal */
 function closeModal() {

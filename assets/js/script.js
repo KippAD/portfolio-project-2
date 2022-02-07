@@ -24,8 +24,8 @@ let difficulty;
 let questionDifficulty;
 let question;
 let correctAnswer;
-let scoreCounter = 0;
-let questionCounter = 1;
+let scoreCounter;
+let questionCounter;
 let displayAnswer;
 let randomIndex = [];
 const gameArea = document.getElementById('game-area');
@@ -71,6 +71,7 @@ function selectDifficulty() {
   `;
   // Checks if difficulty is unlocked
   difficultyUnlocked();
+
   // 'Not you?' text that clears local storage and reloads enter username page
   modalType = "wipeModal";
   loadPage = "username";
@@ -92,7 +93,6 @@ function setQuestionDifficulty() {
     questionDifficulty = [...hardQuestions];
   };
   let i;
-  convertHighScore();
   shuffle(questionDifficulty);
   runGame();
 };
@@ -100,7 +100,7 @@ function setQuestionDifficulty() {
 /** Loads the game area where questions and answers are displayed */
 function runGame() {
   gameArea.innerHTML = `
-    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12</h2>
+    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12 of the ${difficultySelection} Quiz</h2>
     <p>Which of the following cities is the capital of <span id="question-sub"></span>?</p>
     <div class="answer-container">  
       <button class="answer-btn btn">Answer1</button>
@@ -116,7 +116,11 @@ function runGame() {
   modalType ="homeModal";
   homeIcon.addEventListener('click', showModal);
   i = 0;
-  nextQuestion();
+  scoreCounter = 0;
+  questionCounter = 1;
+  setHighScoreCounter();
+
+  populateQuestion();
   checkAnswer();
 };
 
@@ -156,18 +160,16 @@ function loadScores() {
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
   if (i <= 11) {
-    setHighScoreCounter();
     // Ensures that the high score counter matches the current score value
     if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
       highScoreCounter.innerHTML = scoreCounter;
     };
     populateQuestion();
-    questionCounter += 1;
   } else {
     document.getElementById('scoreCounter').innerHTML = scoreCounter;
+    checkHighScore();
     modalType = "endQuiz";
     showModal();
-    checkHighScore();
   }
 };
 
@@ -185,18 +187,6 @@ function populateQuestion() {
   document.getElementById('questionCounter').innerHTML = questionCounter;
 };
 
-/** Fills answer buttons inner HTML with random values */
-function generateAnswers() {
-  // Populates answer buttons with random answer from array
-  answerButtons = Array.from(answerButtons);
-  let n = 0;
-  for (answerButton of answerButtons) {
-    let j = randomIndex[n];
-    answerButton.innerHTML = questionDifficulty[j].answer;
-    n++;
-  };
-};
-
 /** Checks if answer is correct or incorrect and loads next question */
 function checkAnswer() {
   answerButtons.forEach(answerButton => {
@@ -210,6 +200,7 @@ function checkAnswer() {
         answerButton.style.backgroundColor = "#C32F27";
         showAnswer();
       };
+      questionCounter += 1;
       i++;
     });
   });
@@ -327,6 +318,7 @@ function generateAnswers() {
   for (answerButton of answerButtons) {
       let j = randomIndex[n];
       answerButton.innerHTML = questionDifficulty[j].answer;
+      console.log(questionDifficulty[j].answer)
       currentAnswers.push(answerButton.innerHTML);
       n++;
   };
