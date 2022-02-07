@@ -100,16 +100,16 @@ function setQuestionDifficulty() {
 /** Loads the game area where questions and answers are displayed */
 function runGame() {
   gameArea.innerHTML = `
-    <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12 of the ${difficultySelection} Quiz</h2>
-    <p>Which of the following cities is the capital of <span id="question-sub"></span>?</p>
+    <h3>Good luck ${username}! - Question <span id="questionCounter"></span> of 12</h3>
+    <p class="bold">Which of the following cities is the capital of <span id="question-sub"></span>?</p>
     <div class="answer-container">  
       <button class="answer-btn btn">Answer1</button>
       <button class="answer-btn btn">Answer2</button>
       <button class="answer-btn btn">Answer3</button>
       <button class="answer-btn btn">Answer4</button>
     </div> 
-    <p>Current Score: <span id="scoreCounter"></span></p>
-    <p>High Score: <span id="highScoreCounter">0</span></p>
+    <p class="bold">Current Score: <span id="scoreCounter"></span></p>
+    <p class="bold">High Score: <span id="highScoreCounter">0</span></p>
   `;
   // Replaces home icon event listener whilst on game page
   homeIcon.removeEventListener('click', refreshPage)
