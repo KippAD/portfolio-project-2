@@ -32,7 +32,6 @@ main {
 
 .panel {
   width: 60vw;
-  height: 60vh;
   padding: 0 25px;
   background-color: #dda448ef;
   border-radius: 25px;
@@ -44,7 +43,7 @@ main {
 
 .title-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: flex-end;
   text-align: center;
 }
@@ -56,12 +55,18 @@ main {
   font-size: 4rem;
 }
 
+#icon-div {
+  width: 20%;
+  text-align: start;
+}
+
 .line {
   display: block;
   width: 60%;
   margin: 0 auto;
   border-bottom: 1px solid black;
 }
+
 
 /* Game area of panel */
 
@@ -75,10 +80,16 @@ main {
 }
 
 #game-area > h2 {
+  width: 60%;
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 12.5px;
 }
+
+.menu-btn-container {
+  width: 100%;
+  flex-grow: 1;
+}
+
 
 /* Enter username page styles  */
 #username-form {
@@ -264,10 +275,6 @@ main {
   background-color: #404D64;
 }
 
-.menu-btn-container {
-  width: 100%;
-}
-
 .menu-btn {
   display: block;
   width: 40%;
@@ -278,9 +285,9 @@ main {
 }
 
 #home-button, #sound-icon  {
-  width: 5%;
   display: inline-block;
   color: black;
+  margin-right: 5%;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 6rem;
@@ -340,3 +347,164 @@ i:hover, #clear-username:hover {
 .bold {
   font-weight: 900;
 }
+
+/* Media queries for responsive design */
+
+/* laptops and smallers screens */
+@media screen and (max-width: 1500px) {
+
+  .panel {
+    width: 75vw;
+    margin: 5% auto;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 1200px) {
+
+  /* Main menu */
+  .panel {
+    width: 70vw;
+    margin: 10% auto;
+    padding: 25px 0;
+    display: block;
+  }
+
+  .title-bar {
+    flex-wrap: wrap;
+  }
+
+  .title-bar > h1 {
+    padding-top: 12.5px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  #icon-div {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  #game-area > h2 {
+    width: 80%;
+    font-size: 3rem;
+  }
+
+  .menu-btn-container {
+    justify-content: center;
+  }
+
+  .menu-btn {
+    width: 60%;
+    padding: 40px;
+  }
+
+  .line {
+    width: 80%;
+    margin: 25px auto;
+  }
+
+  .social-media > i {
+    font-size: 7rem;
+  }
+
+  /* Setup game page */
+
+}
+
+/* Smaller Tablets */
+@media screen and (max-width: 950px) {
+
+  /* Main menu */
+  .panel {
+    width: 80vw;
+    padding:25px;
+  }
+
+  .title-bar > h1 {
+    width: 80%;
+  }
+
+  .line {
+    width: 80%;
+    margin: 0 auto;
+  }
+  }
+
+}
+
+/* Tiny Tablets */
+@media screen and (max-width: 700px) {
+
+  /* Main menu */
+  .panel {
+    width: 60vw;
+  }
+
+  #game-area > h2 {
+    font-size: 2.5rem;
+  }
+
+  .title-bar > h1, #icon-div, .line {
+    width: 75%;
+  }
+}
+
+/* Large mobile Devices */
+@media screen and (max-width: 580px) {
+  /* Main menu */
+  .panel {
+    width: 80vw;
+    padding: 0;
+  }
+
+  #game-area > h2 {
+    font-size: 2rem;
+  }
+
+  .title-bar > h1, #icon-div, .line {
+    width: 70%;
+  }
+
+  .menu-btn {
+    padding: 20px;
+  }
+
+  .social-media > li {
+    padding: 25px 10px;
+  }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 480px) {
+  
+  /* Main menu */
+  .panel {
+    width: 90vw;
+    padding: 0;
+  }
+
+  .title-bar > h1 {
+    font-size: 3rem;
+  }
+}
+
+/* small Mobile Devices */
+@media screen and (max-width: 400px) {
+  
+  /* Main menu */
+  .panel {
+    width: 90vw;
+    padding: 0;
+  }
+
+  .title-bar > h1 {
+    width: 90%;
+  }
+  
+  #icon-div i, .social-media i {
+    font-size: 3rem;
+  }
+}
+
+

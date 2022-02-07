@@ -16,7 +16,7 @@ scoresBtn.addEventListener('click', loadScores)
 let easyHighScore = localStorage.getItem('easyHighScore');
 let normalHighScore = localStorage.getItem('normalHighScore');
 let hardHighScore = localStorage.getItem('hardHighScore');
-
+convertHighScore();
 
 // General variables
 let username = localStorage.getItem('username');
