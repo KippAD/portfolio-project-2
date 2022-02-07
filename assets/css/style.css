@@ -454,7 +454,12 @@
   label.btn {
     padding: 15px;
   }
-  
+
+  /* Scores page */
+  .rules-div {
+    width: 80%;
+  }
+
  }
   
  /* Tiny Tablets */
@@ -496,7 +501,20 @@
   #game-area > p, #game-area > h3 {
     font-size: 2rem;
   }
-  
+
+  /* Scores page */
+  #clearRecord {
+    width: 80%;
+  }
+
+  /* Scores page */
+  .rules-div {
+    width: 90%;
+  }
+
+  .rules-div > p {
+    font-size: 2rem;
+  }
  }
   
  /* Large mobile Devices */
@@ -550,6 +568,11 @@
   /* Run game area */
   #game-area > h3 {
     margin-bottom: 12.5px;
+  }
+
+  /* Scores page */
+  #clearRecord {
+    font-size: 2rem;
   }
   
  }
@@ -620,9 +643,6 @@
     padding: 0;
   }
   
-  /* .title-bar > h1 {
-    width: 90%;
-  } */
    #icon-div i, .social-media i {
     font-size: 3rem;
   }
