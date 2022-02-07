@@ -16,9 +16,6 @@ setSoundIcon();
 */ 
 function soundSwitch() {
   clickAudio();
-  if (!sound) {
-    sound = "on";
-  };
   if (sound === "on") {
     sound = "off";
   } else if (sound === "off") {
@@ -30,6 +27,9 @@ function soundSwitch() {
 
 /** Changes the sound icon */
 function setSoundIcon() {
+  if (!sound) {
+    sound = "on";
+  };
   if (sound === "off") {
     soundIcon.innerHTML = `
     <i class="fas fa-volume-mute"></i>
