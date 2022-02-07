@@ -89,6 +89,7 @@ function selectDifficulty() {
 
 /** Selects which array to draw questions from depending on selected difficulty */
 function setQuestionDifficulty() {
+  closeModal();
   clickAudio();
 
   if (difficultySelection === "easy") {
@@ -100,6 +101,7 @@ function setQuestionDifficulty() {
   };
 
   answerButtons = document.getElementsByClassName('answer-btn');
+  convertHighScore();
   shuffle(questionDifficulty);
   runGame();
 };

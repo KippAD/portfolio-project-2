@@ -39,7 +39,7 @@ function endQuizModal() {
     `;
   }
   document.getElementById('menu-btn').addEventListener('click', refreshPage);
-  // document.getElementById('reset-quiz').addEventListener('click', refreshPage);
+  document.getElementById('reset-quiz').addEventListener('click', setQuestionDifficulty);
 
 }
 
@@ -79,7 +79,6 @@ function nextQuiz() {
   } else if (difficultySelection === "normal") {
     difficultySelection = "hard";
   };
-  closeModal();
   setQuestionDifficulty();
 };
 
