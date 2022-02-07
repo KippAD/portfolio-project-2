@@ -18,8 +18,8 @@ html {
 
 a {
   text-decoration: none;
-  color: white;
 }
+
 
 /* Styles for the game panel and title bar */
 main {
@@ -182,6 +182,7 @@ main {
   margin: 10px auto;
   padding: 10px;
   font-size: 3rem;
+  transition: all 0.3s ease;
 }
 
 /* Modal styles */
@@ -255,7 +256,11 @@ main {
   padding: 12.5px;
 }
 
-.btn:hover, .answer-btn:hover {
+.btn:hover {
+  background-color: #404D64;
+}
+
+.answer-btn:hover {
   background-color: #404D64;
 }
 
@@ -275,10 +280,14 @@ main {
 #home-button, #sound-icon  {
   width: 5%;
   display: inline-block;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 6rem;
+}
+
+#home-button > i, #sound-icon > i {
+  transition: all 0.3s ease;
 }
 
 #submit {
@@ -308,7 +317,8 @@ main {
 
 .social-media i {
   font-size: 4rem;
-  transition: ease 0.3s;
+  color: black;
+  transition: all ease 0.3s;
 }
 
 .social-media > li {
@@ -317,9 +327,8 @@ main {
 }
 
 /* Default hover colour */
-.social-media i:hover, #home-button:hover, 
-#sound-icon:hover, #clear-username:hover {
-  color: #D6D6D6;
+i:hover, #clear-username:hover {
+  color: #666666;
 }
 
 /* General classes */
