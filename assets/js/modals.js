@@ -53,6 +53,21 @@ function wipeModal() {
   document.getElementById('yesBtn').addEventListener('click', clearLocalStorage);
 };
 
+// Modal displayed when user clicks home icon in game area
+function goHomeModal() {
+  modal.style.backgroundColor = "white";
+  modal.style.color = "black";
+  modalTitle.innerHTML = "Are you sure?"
+  modalContent.innerHTML = `
+  <p>If you go home now you will lose all of your progress in this game.</p>
+  <p>Are your sure you want to go to the main menu?</p>
+  <button id="noBtn" class="btn">No</button>
+  <button id="yesBtn" class="btn">Yes</button>
+  `;
+  document.getElementById('noBtn').addEventListener('click', closeModal);
+  document.getElementById('yesBtn').addEventListener('click', refreshPage)
+}
+
 /** Closes the modal */
 function closeModal() {
   modal.style.display = 'none';
@@ -63,7 +78,7 @@ function clearLocalStorage() {
   localStorage.clear();
   username = localStorage.getItem('username')
   if (loadPage === "home") {
-    document.location.reload(true);
+    refreshPage();
   } else if (loadPage === "username") {
     enterUsername();
   };

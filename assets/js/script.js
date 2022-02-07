@@ -4,6 +4,9 @@ const playBtn = buttons[0];
 const rulesBtn = buttons[1];
 const scoresBtn = buttons[2];
 
+const homeIcon = document.getElementById('home-button')
+homeIcon.addEventListener('click', refreshPage);
+
 // Event listeners for buttons on main menu
 playBtn.addEventListener('click', enterUsername);
 rulesBtn.addEventListener('click', loadRules);
@@ -94,6 +97,7 @@ function setQuestionDifficulty() {
   runGame();
 };
 
+/** Loads the game area where questions and answers are displayed */
 function runGame() {
   gameArea.innerHTML = `
     <h2>Good luck ${username}, this is question <span id="questionCounter"></span> of 12</h2>
@@ -107,11 +111,16 @@ function runGame() {
     <p>Current Score: <span id="scoreCounter"></span></p>
     <p>High Score: <span id="highScoreCounter">0</span></p>
   `;
+  // Replaces home icon event listener whilst on game page
+  homeIcon.removeEventListener('click', refreshPage)
+  modalType ="homeModal";
+  homeIcon.addEventListener('click', showModal);
   i = 0;
   nextQuestion();
   checkAnswer();
 };
 
+/** Loads the rules page */
 function loadRules() {
   gameArea.innerHTML = `
     <div class="rules-div">
@@ -124,6 +133,7 @@ function loadRules() {
   document.getElementById('rules-play').addEventListener('click', enterUsername);
 }
 
+/** Loads the rules page */
 function loadScores() {
   if (!localStorage.getItem('username')) {
     alert('Sorry, you need to log a username before checking your scores!')
@@ -358,3 +368,6 @@ function shuffle(array) {
   return array;
 };
 
+function refreshPage() {
+  document.location.reload(true);
+};
