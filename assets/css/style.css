@@ -230,7 +230,7 @@
   color: black;
  }
   
- #modal h3 {
+ #modalTitle {
   font-size: 4rem;
   font-weight: 900;
   padding: 12.5px;
@@ -363,6 +363,16 @@
     width: 75vw;
     margin: 5% auto;
   }
+
+  /* Modals */
+  #modal {
+    width: 35%;
+    left: 32.5%;
+  }
+  #modalContent {
+    padding: 10px;
+  }
+
  }
   
  /* Tablets */
@@ -460,6 +470,19 @@
     width: 80%;
   }
 
+  /* Modals */
+  #modal {
+    width: 60%;
+    left: 20%;
+  }
+
+  #modalTitle {
+    font-size: 3rem;
+  }
+
+  #modalContent > p {
+    font-size: 2rem;
+  }
  }
   
  /* Tiny Tablets */
@@ -633,6 +656,17 @@
   #game-area > p, #game-area > h3 {
     font-size: 2rem;
   }
+
+  /* Modals */
+  #modal {
+    width: 80%;
+    left: 10%;
+    top: 25%;
+  }
+  #modalContent {
+    padding: 10px;
+  }
+
  }
   
  /* small Mobile Devices */
