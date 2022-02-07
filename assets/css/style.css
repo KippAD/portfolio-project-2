@@ -364,7 +364,7 @@ i:hover, #clear-username:hover {
 }
 
 /* Tablets */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1201px) {
 
   /* Main menu */
   .panel {
@@ -412,9 +412,17 @@ i:hover, #clear-username:hover {
   }
 
   /* username form */
-
   #username-form {
     width: 60%;
+  }
+
+  /* Difficulty selection */
+  .diff-container, .username-container, #play-btn {
+    width: 80%;
+  }
+
+  label.btn {
+    font-size: 2.5rem;
   }
 
 }
@@ -430,22 +438,27 @@ i:hover, #clear-username:hover {
 
   .title-bar > h1 {
     width: 80%;
+    font-size: 3.5rem;
   }
 
   .line {
     width: 80%;
     margin: 0 auto;
   }
+  
+  /* Difficulty selection */
+  label.btn {
+    padding: 15px;
   }
 
 }
 
 /* Tiny Tablets */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 710px) {
 
   /* Main menu */
   .panel {
-    width: 60vw;
+    width: 80vw;
   }
 
   #game-area > h2 {
@@ -453,7 +466,18 @@ i:hover, #clear-username:hover {
   }
 
   .title-bar > h1, #icon-div, .line {
-    width: 75%;
+    width: 90%;
+  }
+
+  /* Difficulty selection */
+  label.btn {
+    padding: 15px 30px;
+    font-size: 2rem;
+    width: 15%;
+  }
+
+  .diff-container, .username-container, #play-btn {
+    width: 80%;
   }
 }
 
@@ -461,7 +485,7 @@ i:hover, #clear-username:hover {
 @media screen and (max-width: 580px) {
   /* Main menu */
   .panel {
-    width: 80vw;
+    width: 90vw;
     padding: 0;
   }
 
@@ -485,10 +509,29 @@ i:hover, #clear-username:hover {
   #username-form {
     width: 70%;
   }
+
+  /* Difficulty selection */
+  .username-container > h2 {
+    font-size: 2rem;
+  }
+
+  .diff-container i {
+    font-size: 2rem;
+  }
+
+  label.btn {
+    padding: 15px 30px;
+    font-size: 2rem;
+    width: 15%;
+  }
+
+  .diff-container, .username-container, #play-btn {
+    width: 80%;
+  }
 }
 
 /* Mobile Devices */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   
   /* Main menu */
   .panel {
@@ -497,7 +540,43 @@ i:hover, #clear-username:hover {
   }
 
   .title-bar > h1 {
-    font-size: 3rem;
+    width: 80%;
+    font-size: 2.2rem;
+  }
+
+  /* Difficulty selection */
+  .username-container > h2 {
+    font-size: 2rem;
+  }
+
+  .diff-container {
+    flex-direction: column;
+    padding: 12.5px;
+  }
+
+  #clear-username, .diff-container i {
+    font-size: 2rem;
+  }
+
+  label.btn {
+    display: block;
+    padding: 12.5px;
+    margin: 10px auto;
+    font-size: 2rem;
+    width: 80%;
+  }
+
+  .diff-container, .username-container, #play-btn {
+    width: 80%;
+  }
+
+  #play-btn {
+    width: 35%;
+    padding: 12.5px;
+    background-color: #474747;
+    font-size: 2rem;
+    align-self: start;
+    margin-left: 15%;
   }
 }
 
@@ -510,9 +589,9 @@ i:hover, #clear-username:hover {
     padding: 0;
   }
 
-  .title-bar > h1 {
+  /* .title-bar > h1 {
     width: 90%;
-  }
+  } */
   
   #icon-div i, .social-media i {
     font-size: 3rem;
