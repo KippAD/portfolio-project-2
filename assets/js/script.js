@@ -20,13 +20,11 @@ convertHighScore();
 
 // General variables
 let username = localStorage.getItem('username');
-let difficulty;
-let questionDifficulty;
+let difficultySelection;
 let question;
 let correctAnswer;
 let scoreCounter;
 let questionCounter;
-let displayAnswer;
 let randomIndex = [];
 const gameArea = document.getElementById('game-area');
 let answerButtons = document.getElementsByClassName('answer-btn');
@@ -47,6 +45,14 @@ function enterUsername() {
     selectDifficulty();
   }; 
 };
+
+function fillAnswers() {
+  n = 0;
+  for (answerButton of answerButtons) {
+    answerButton.innerHTML = randomIndex[n];
+    n++;
+  }
+}
 
 /** Shows html area where user selects a difficulty */
 function selectDifficulty() {
@@ -71,6 +77,7 @@ function selectDifficulty() {
   `;
   // Checks if difficulty is unlocked
   difficultyUnlocked();
+  difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
 
   // 'Not you?' text that clears local storage and reloads enter username page
   modalType = "wipeModal";
@@ -83,7 +90,6 @@ function selectDifficulty() {
 /** Selects which array to draw questions from depending on selected difficulty */
 function setQuestionDifficulty() {
   clickAudio();
-  difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
 
   if (difficultySelection === "easy") {
     questionDifficulty = [...easyQuestions];
@@ -92,7 +98,8 @@ function setQuestionDifficulty() {
   } else if (difficultySelection === "hard") {
     questionDifficulty = [...hardQuestions];
   };
-  let i;
+
+  answerButtons = document.getElementsByClassName('answer-btn');
   shuffle(questionDifficulty);
   runGame();
 };
@@ -111,6 +118,8 @@ function runGame() {
     <p class="bold">Current Score: <span id="scoreCounter"></span></p>
     <p class="bold">High Score: <span id="highScoreCounter">0</span></p>
   `;
+  fillAnswers();
+
   // Replaces home icon event listener whilst on game page
   homeIcon.removeEventListener('click', refreshPage)
   modalType ="homeModal";
@@ -186,6 +195,12 @@ function populateQuestion() {
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
 };
+
+function fillAnswers() {
+  for (answerButton of answerButtons) {
+    answerButton.innerHTML
+  }
+}
 
 /** Checks if answer is correct or incorrect and loads next question */
 function checkAnswer() {
@@ -316,10 +331,9 @@ function generateAnswers() {
   let n = 0;
   let currentAnswers = [];
   for (answerButton of answerButtons) {
-      let j = randomIndex[n];
-      answerButton.innerHTML = questionDifficulty[j].answer;
-      console.log(questionDifficulty[j].answer)
-      currentAnswers.push(answerButton.innerHTML);
+      j = randomIndex[n];
+      answerButton.innerText = questionDifficulty[j].answer;
+      currentAnswers.push(answerButton.innerText);
       n++;
   };
   // Inserts correct answer if it does not exist already
@@ -341,8 +355,7 @@ function generateIndex() {
     };
     randomIndex.push(num);
   };  
-  console.log(randomIndex);
-  return randomIndex
+  return randomIndex;
 };
 
 /** Shuffle array before game begins to randomise question order */

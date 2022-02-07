@@ -29,7 +29,7 @@ function endQuizModal() {
     <button id="menu-btn" class="btn">Main Menu</button>
     <button id="next-quiz" class="btn">Next Quiz</button>
     `;
-    document.getElementById('next-quiz').addEventListener('click', refreshPage);
+    document.getElementById('next-quiz').addEventListener('click', nextQuiz);
   } else {
     modalContent.innerHTML = `
     <p>Well done on completing the ${difficultySelection} quiz, you scored ${scoreCounter} out of 12.</p>
@@ -39,7 +39,7 @@ function endQuizModal() {
     `;
   }
   document.getElementById('menu-btn').addEventListener('click', refreshPage);
-  document.getElementById('reset-quiz').addEventListener('click', refreshPage);
+  // document.getElementById('reset-quiz').addEventListener('click', refreshPage);
 
 }
 
@@ -73,12 +73,15 @@ function goHomeModal() {
   document.getElementById('yesBtn').addEventListener('click', refreshPage)
 }
 
-// function startNextQuiz() {
-//   difficultySelection = "normal";
-//   setQuestionDifficulty();
-//   refreshPage();
-//   closeModal();
-// }
+function nextQuiz() {
+  if (difficultySelection === "easy") {
+    difficultySelection = "normal";
+  } else if (difficultySelection === "normal") {
+    difficultySelection = "hard";
+  };
+  closeModal();
+  setQuestionDifficulty();
+};
 
 /** Closes the modal */
 function closeModal() {
