@@ -39,7 +39,7 @@ function enterUsername() {
   closeModal();
   if (!username) {
     gameArea.innerHTML = `
-      <form action="" id="username-form" method="post">  
+      <form id="username-form" method="post">  
           <label for="username">Please enter a Username:</label><br>
           <input id="username" type="text" placeholder="Enter your username here..." required>
           <button type="submit" id="submit" class="btn">Submit <i class="fas fa-arrow-right"></i></button>
@@ -114,7 +114,7 @@ function setQuestionDifficulty() {
 /** Loads the game area where questions and answers are displayed */
 function runGame() {
   gameArea.innerHTML = `
-    <h2>Good luck ${username}! - ${displayDifficulty} Quiz Question: <span id="questionCounter"></span> of 12</h3>
+    <h2>Good luck ${username}! - ${displayDifficulty} Quiz Question: <span id="questionCounter"></span> of 12</h2>
     <p class="bold">Which of the following cities is the capital of <span id="question-sub"></span>?</p>
     <div class="answer-container">  
       <button class="answer-btn btn">Answer1</button>
@@ -148,7 +148,7 @@ function loadRules() {
       <p>To unlock harder quiz difficulties answer 9 or more correctly on the preceeding difficulty.</p>
       <button id="rules-play" class="menu-btn btn">Play</button>
       <a id="back-btn" href="../../index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
-    </div
+    </div>
   `;
   document.getElementById('rules-play').addEventListener('click', enterUsername);
 }
