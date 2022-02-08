@@ -130,6 +130,7 @@ function runGame() {
 
 /** Loads the rules page */
 function loadRules() {
+  clickAudio();
   gameArea.innerHTML = `
     <div class="rules-div">
       <p>Welcome to the Capitals of the World Quiz, here's how it all works:</p>
@@ -143,6 +144,7 @@ function loadRules() {
 
 /** Loads the rules page */
 function loadScores() {
+  clickAudio();
   if (!localStorage.getItem('username')) {
     alert('Sorry, you need to log a username before checking your scores!')
   } else {
@@ -375,5 +377,6 @@ function shuffle(array) {
 };
 
 function refreshPage() {
+  clickAudio();
   document.location.reload(true);
 };

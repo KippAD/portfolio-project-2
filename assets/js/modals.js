@@ -9,10 +9,13 @@ function showModal() {
   modal.style.display = 'block';
   // Specifies which modal to display
   if (modalType === "endQuiz") {
+    endGameAudio();
     endQuizModal();
   } else if (modalType === "wipeModal") {
+    confirmAudio();
     wipeModal();
   } else if (modalType === "homeModal") {
+    confirmAudio();
     goHomeModal();
   };
 };
