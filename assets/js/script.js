@@ -26,8 +26,12 @@ let correctAnswer;
 let scoreCounter;
 let questionCounter;
 let randomIndex = [];
+let loadPage;
+let questionDifficulty;
 const gameArea = document.getElementById('game-area');
 let answerButtons = document.getElementsByClassName('answer-btn');
+let i;
+let disableAnswerBtn = false;
 
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
@@ -45,14 +49,6 @@ function enterUsername() {
     selectDifficulty();
   }; 
 };
-
-function fillAnswers() {
-  n = 0;
-  for (answerButton of answerButtons) {
-    answerButton.innerHTML = randomIndex[n];
-    n++;
-  }
-}
 
 /** Shows html area where user selects a difficulty */
 function selectDifficulty() {
@@ -101,7 +97,6 @@ function setQuestionDifficulty() {
   };
 
   answerButtons = document.getElementsByClassName('answer-btn');
-  convertHighScore();
   shuffle(questionDifficulty);
   runGame();
 };
@@ -120,8 +115,6 @@ function runGame() {
     <p class="bold">Current Score: <span id="scoreCounter"></span></p>
     <p class="bold">High Score: <span id="highScoreCounter">0</span></p>
   `;
-  fillAnswers();
-
   // Replaces home icon event listener whilst on game page
   homeIcon.removeEventListener('click', refreshPage)
   modalType ="homeModal";
@@ -132,7 +125,7 @@ function runGame() {
   setHighScoreCounter();
 
   populateQuestion();
-  checkAnswer();
+  assignAnswerBtns();
 };
 
 /** Loads the rules page */
@@ -171,12 +164,14 @@ function loadScores() {
 /** Sets all counters and ensures game area populated with question */
 function nextQuestion() {
   if (i <= 11) {
+    assignAnswerBtns();
     // Ensures that the high score counter matches the current score value
     if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
       highScoreCounter.innerHTML = scoreCounter;
     };
     populateQuestion();
   } else {
+    disableAnswerBtns();
     document.getElementById('scoreCounter').innerHTML = scoreCounter;
     checkHighScore();
     modalType = "endQuiz";
@@ -198,33 +193,38 @@ function populateQuestion() {
   document.getElementById('questionCounter').innerHTML = questionCounter;
 };
 
-function fillAnswers() {
-  for (answerButton of answerButtons) {
-    answerButton.innerHTML
-  }
-}
-
-/** Checks if answer is correct or incorrect and loads next question */
-function checkAnswer() {
+/** Assigns answer button event listeners */
+function assignAnswerBtns() {
   answerButtons.forEach(answerButton => {
-    answerButton.addEventListener('click', function () {
-      if (answerButton.innerHTML === correctAnswer) {
-        correctAudio();
-        scoreCounter += 1;
-        showAnswer();
-      } else {
-        incorrectAudio();
-        answerButton.style.backgroundColor = "#C32F27";
-        showAnswer();
-      };
-      questionCounter += 1;
-      i++;
-    });
-  });
+    answerButton.addEventListener('click', checkAnswer)
+   });
+};
+
+/** Disables answer buttons event listeners */
+function disableAnswerBtns() {
+  answerButtons.forEach(answerButton => {
+    answerButton.removeEventListener('click', checkAnswer)
+   });
+}
+    
+/** Checks if answer is correct or incorrect and loads next question */
+function checkAnswer(evt) {
+  if (evt.target.innerHTML === correctAnswer) {
+    correctAudio();
+    scoreCounter += 1;
+    showAnswer();
+  } else {
+    incorrectAudio();
+    evt.target.style.backgroundColor = "#C32F27";
+    showAnswer();
+  };
+  questionCounter += 1;
+  i++;
 };
 
 /** Highlights correct answer green */
 function showAnswer() {
+  disableAnswerBtns();
   for (answerButton of answerButtons)
     if (answerButton.innerHTML === correctAnswer) {
       answerButton.style.backgroundColor = "#4CB963";
@@ -321,7 +321,6 @@ function storeUsername() {
   if (form.checkValidity()) {
     username = document.getElementById('username').value;
     localStorage.setItem('username', username);
-    convertHighScore();
     selectDifficulty();
   }; 
   return username;

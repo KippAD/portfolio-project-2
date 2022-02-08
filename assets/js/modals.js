@@ -90,6 +90,7 @@ function closeModal() {
 /** Clears storage and assigns username to falsey value form local storage */
 function clearLocalStorage() {
   localStorage.clear();
+  convertHighScore();
   username = localStorage.getItem('username')
   if (loadPage === "home") {
     refreshPage();
