@@ -4,6 +4,7 @@ const playBtn = buttons[0];
 const rulesBtn = buttons[1];
 const scoresBtn = buttons[2];
 
+const gameArea = document.getElementById('game-area');
 const homeIcon = document.getElementById('home-button')
 homeIcon.addEventListener('click', refreshPage);
 
@@ -28,14 +29,14 @@ let questionCounter;
 let randomIndex = [];
 let loadPage;
 let questionDifficulty;
-const gameArea = document.getElementById('game-area');
-let answerButtons = document.getElementsByClassName('answer-btn');
+let answerButtons;
 let i;
 let disableAnswerBtn = false;
 
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
   clickAudio();
+  closeModal();
   if (!username) {
     gameArea.innerHTML = `
       <form action="" id="username-form" method="post">  
@@ -105,6 +106,7 @@ function setQuestionDifficulty() {
   };
 
   answerButtons = document.getElementsByClassName('answer-btn');
+  displayCurrentQuiz()
   shuffle(questionDifficulty);
   runGame();
 };
@@ -112,7 +114,7 @@ function setQuestionDifficulty() {
 /** Loads the game area where questions and answers are displayed */
 function runGame() {
   gameArea.innerHTML = `
-    <h3>Good luck ${username}! - Question <span id="questionCounter"></span> of 12</h3>
+    <h2>Good luck ${username}! - ${displayDifficulty} Quiz Question: <span id="questionCounter"></span> of 12</h3>
     <p class="bold">Which of the following cities is the capital of <span id="question-sub"></span>?</p>
     <div class="answer-container">  
       <button class="answer-btn btn">Answer1</button>
@@ -127,11 +129,11 @@ function runGame() {
   homeIcon.removeEventListener('click', refreshPage)
   modalType ="homeModal";
   homeIcon.addEventListener('click', showModal);
+  // Sets counters for start of quiz
   i = 0;
   scoreCounter = 0;
   questionCounter = 1;
   setHighScoreCounter();
-
   populateQuestion();
   assignAnswerBtns();
 };
@@ -155,7 +157,8 @@ function loadRules() {
 function loadScores() {
   clickAudio();
   if (!localStorage.getItem('username')) {
-    alert('Sorry, you need to log a username before checking your scores!')
+    modalType = "createUsername";
+    showModal();
   } else {
   gameArea.innerHTML = `
     <div class="rules-div">
@@ -371,7 +374,15 @@ function generateIndex() {
   return randomIndex;
 };
 
-/** Shuffle array before game begins to randomise question order */
+/** Shows user current quiz difficulty */
+function displayCurrentQuiz() {
+  displayDifficulty = difficultySelection;
+  displayDifficulty = displayDifficulty.charAt(0).toUpperCase() + displayDifficulty.slice(1);
+  return displayDifficulty;
+}
+
+/** Shuffle array before game begins to randomise question order 
+ * Learnt from: https://www.youtube.com/watch?v=myL4xmtAVtw */
 function shuffle(array) {
   let newPosition;
   let tempPosition;

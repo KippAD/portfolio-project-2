@@ -17,7 +17,10 @@ function showModal() {
   } else if (modalType === "homeModal") {
     confirmAudio();
     goHomeModal();
-  };
+  } else if (modalType === "createUsername") {
+    confirmAudio();
+    createUsernameModal();
+  };;
 };
 
 /** Modal displayed upon quiz completion */
@@ -86,6 +89,21 @@ function goHomeModal() {
   `;
   document.getElementById('noBtn').addEventListener('click', closeModal);
   document.getElementById('yesBtn').addEventListener('click', refreshPage)
+};
+
+/** The modal that displays when user tries to access the scores page without a stored username */
+function createUsernameModal() {
+  modal.style.backgroundColor = "white";
+  modal.style.color = "black";
+  modalTitle.innerHTML = "Sorry!"
+  modalContent.innerHTML = `
+  <p>Sorry, you need to enter a username to check the scores page!</p>
+  <p>Create username?</p>
+  <button id="noBtn" class="btn">No</button>
+  <button id="yesBtn" class="btn">Yes</button>
+  `;
+  document.getElementById('noBtn').addEventListener('click', closeModal);
+  document.getElementById('yesBtn').addEventListener('click', enterUsername);
 }
 
 function nextQuiz() {
