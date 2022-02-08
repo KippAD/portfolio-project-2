@@ -201,6 +201,14 @@
   font-size: 3rem;
   transition: all 0.3s ease;
  }
+
+ .flash-green {
+   background-color: #4CB963 !important;
+ }
+
+ .flash-red {
+  background-color: #C32F27 !important;
+ }
   
  /* Modal styles */
   

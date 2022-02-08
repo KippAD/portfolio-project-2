@@ -215,7 +215,7 @@ function checkAnswer(evt) {
     showAnswer();
   } else {
     incorrectAudio();
-    evt.target.style.backgroundColor = "#C32F27";
+    evt.target.classList.add("flash-red");
     showAnswer();
   };
   questionCounter += 1;
@@ -227,14 +227,22 @@ function showAnswer() {
   disableAnswerBtns();
   for (answerButton of answerButtons)
     if (answerButton.innerHTML === correctAnswer) {
-      answerButton.style.backgroundColor = "#4CB963";
+      answerButton.classList.add("flash-green");
       setTimeout(() => {
-	      answerButton.style.backgroundColor = "#4B5842";
         resetColors();
         nextQuestion();
    }, 2000);
   };
 };
+
+/** Ensures that the answer btn colors reset as each question is loaded */
+function resetColors() {
+  answerButtons.forEach(answerButton => {
+    answerButton.classList.remove("flash-green");
+    answerButton.classList.remove("flash-red");
+  });   
+};
+
 
 /** Sets high score counter to local storage value */ 
 function setHighScoreCounter() {
@@ -304,14 +312,6 @@ function difficultyUnlocked() {
     hardInput.type = "button";
     padlockIcon[1].style.display = "inline-block";
   }; 
-};
-
-
-/** Ensures that the answer btn colors reset as each question is loaded */
-function resetColors() {
-  answerButtons.forEach(answerButton => {
-    answerButton.style.backgroundColor = "#4B5842";
-  });   
 };
 
 /** Checks form validity and stores username in local storage upon submission */
