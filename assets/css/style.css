@@ -19,6 +19,7 @@
   
  a {
   text-decoration: none;
+  color: #000000;
  }
   
   
@@ -296,6 +297,18 @@
   padding: 25px;
   width: 40%;
   font-size: 3rem;
+ }
+
+ #back-btn {
+   height: 5vh;
+   position: absolute;
+   left: 400px;
+   top: 45%;
+   cursor: pointer;
+ }
+
+ #back-btn > i {
+  font-size: 5rem;
  }
   
  #home-button, #sound-icon  {
