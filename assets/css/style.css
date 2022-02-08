@@ -224,7 +224,6 @@
   overflow: hidden;
   background-color: #7CDF64;
   color: white;
-  font-weight: 2rem;
   text-align: center;
   
   animation: animationTop;
@@ -233,7 +232,6 @@
   
  #modalContent {
   margin: 0 auto;
-  font-weight: 2rem;
   padding-bottom: 12.5px;
   text-align: center;
   color: black;
