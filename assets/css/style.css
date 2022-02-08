@@ -35,7 +35,7 @@
  .panel {
   width: 60vw;
   min-height: 600px;
-  padding: 0 25px;
+  padding: 25px;
   background-color: #dda448ef;
   border-radius: 25px;
   
@@ -91,6 +91,9 @@
   
  .menu-btn-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   flex-grow: 1;
  }
   
@@ -219,7 +222,7 @@
   border-radius: 15px;
   box-shadow: gray 0px 0px 5px;
   position: fixed;
-  top: 30%;
+  top: 35%;
   left: 35%;
   overflow: hidden;
   background-color: #7CDF64;
@@ -253,7 +256,7 @@
   
  @keyframes animationTop {
   from {top: -100px; opacity: 0}
-  to {top: 30%; opacity: 1}
+  to {top: 35%; opacity: 1}
  }
   
  /* Rules page */
@@ -291,7 +294,7 @@
  .menu-btn {
   display: block;
   width: 40%;
-  margin: 25px auto;
+  margin: 12.5px auto;
   padding: 25px;
   width: 40%;
   font-size: 3rem;
@@ -308,17 +311,20 @@
  #back-btn > i {
   font-size: 5rem;
  }
+
+ #noBtn, #yesBtn {
+   width: 15%;
+ }
   
  #home-button, #sound-icon  {
   display: inline-block;
-  color: black;
   margin-right: 5%;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 6rem;
  }
   
  #home-button > i, #sound-icon > i {
+  font-size: 4rem;
+  color: black;
   transition: all 0.3s ease;
  }
   
@@ -385,9 +391,16 @@
 
   /* Modals */
   #modal {
+    top: 30%;
     width: 35%;
     left: 32.5%;
   }
+
+  @keyframes animationTop {
+    from {top: -100px; opacity: 0}
+    to {top: 30%; opacity: 1}
+   }
+
   #modalContent {
     padding: 10px;
   }
@@ -405,6 +418,7 @@
   /* Main menu */
   .panel {
     width: 70vw;
+    min-height: 500px;
     margin: 10% auto;
     padding: 25px 0;
   }
@@ -424,9 +438,8 @@
     margin: 0 auto;
   }
   
-  #game-area > h2 {
-    width: 80%;
-    font-size: 3rem;
+  #game-area h2 {
+    padding-top: 12.5px;
   }
   
   .menu-btn-container {
@@ -436,16 +449,26 @@
   .menu-btn {
     width: 60%;
   }
+
+  #noBtn, #yesBtn {
+    width: 25%;
+  }
   
   .line {
     width: 80%;
-    margin: 25px auto;
+    margin: 10px auto;
   }
   
   .social-media > i {
     font-size: 7rem;
   }
   
+  /* Rules page */
+
+  .rules-div {
+    width: 70%;
+  }
+
   /* username form */
   #username-form {
     width: 60%;
@@ -484,10 +507,19 @@
     width: 80%;
     font-size: 3.5rem;
   }
+
+  #game-area h2 {
+    width: 80%;
+    font-size: 2.5rem;
+  }
+
+  #game-area .username-container > h2 {
+    width: 100%;
+  }
   
   .line {
     width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
   }
    /* Difficulty selection */
   label.btn {
@@ -502,8 +534,14 @@
   /* Modals */
   #modal {
     width: 60%;
+    top: 35%;
     left: 20%;
   }
+
+  @keyframes animationTop {
+    from {top: -100px; opacity: 0}
+    to {top: 35%; opacity: 1}
+   }
 
   #modalTitle {
     font-size: 3rem;
@@ -527,7 +565,8 @@
     width: 80vw;
   }
   
-  #game-area > h2 {
+  #game-area h2 {
+    width: 80%;
     font-size: 2.5rem;
   }
   
@@ -584,35 +623,36 @@
   /* Main menu */
   .panel {
     width: 90vw;
-    padding: 0;
+    padding: 25px 0;
   }
   
   .title-bar > h1 {
-    font-size: 3rem;
+    width: 80%;
+    font-size: 2.5rem;
   }
-  
-  #game-area > h2 {
-    font-size: 2rem;
-  }
-  
+
   .menu-btn {
     padding: 20px;
   }
-  
-  .social-media > li {
-    padding: 25px 10px;
+
+  #icon-div {
+    width: 80%;
   }
   
-  /* Username input */
+  /* Enter username / difficuly selection */
   #username-form {
     width: 70%;
   }
-  
-  /* Difficulty selection */
-  .username-container > h2 {
+
+  #game-area > h2, #game-area span {
+    padding: 0;
     font-size: 2rem;
   }
-  
+
+  #game-area .username-container > h2{
+    font-size: 2rem;
+  }
+
   .diff-container i {
     font-size: 2rem;
   }
@@ -622,9 +662,14 @@
     font-size: 2rem;
     width: 15%;
   }
-  
-  .diff-container, .username-container, #play-btn {
-    width: 80%;
+
+  /* Social media */
+  .social-media > li {
+    padding: 12.5px;
+  }
+
+  .social-media i, #icon-div i{
+    font-size: 3rem;
   }
   
   /* Run game area */
@@ -636,20 +681,19 @@
   #clearRecord {
     font-size: 2rem;
   }
-  
  }
   
  /* Mobile Devices */
  @media screen and (max-width: 500px) {
-   /* Main menu */
-  .panel {
-    width: 90vw;
-    padding: 0;
-  }
   
-  .title-bar > h1 {
-    width: 80%;
-    font-size: 2.2rem;
+  /* Main menu */
+  .menu-btn {
+    padding: 15px 20px;
+  }
+
+  /* Enter Username */
+  #username-form > label {
+    font-size: 2rem;
   }
   
   /* Difficulty selection */
@@ -662,7 +706,7 @@
     padding: 12.5px;
   }
   
-  #clear-username, .diff-container i {
+  #clear-username {
     font-size: 2rem;
   }
   
@@ -673,11 +717,7 @@
     font-size: 2rem;
     width: 80%;
   }
-  
-  .diff-container, .username-container, #play-btn {
-    width: 80%;
-  }
-  
+
   #play-btn {
     width: 35%;
     padding: 12.5px;
@@ -689,35 +729,86 @@
   
   /* Run game area */
   .answer-btn {
-    width: 100%;
+    font-size: 2.5rem;
   }
   
   #game-area > p, #game-area > h3 {
+    padding: 5px 0;
     font-size: 2rem;
   }
 
   /* Modals */
   #modal {
     width: 80%;
+    top: 30%;
     left: 10%;
-    top: 25%;
   }
-  #modalContent {
-    padding: 10px;
-  }
+  
+  @keyframes animationTop {
+    from {top: -100px; opacity: 0}
+    to {top: 30%; opacity: 1}
+   }
 
  }
   
  /* small Mobile Devices */
  @media screen and (max-width: 400px) {
-   /* Main menu */
+  
+  /* Main menu */
   .panel {
-    width: 90vw;
+    width: 95vw;
+    min-height: 400px;
     padding: 0;
   }
-  
-   #icon-div i, .social-media i {
-    font-size: 3rem;
+
+  .title-bar > h1, #game-area > h2 {
+    width: 90%;
   }
+
+  #icon-div {
+    width: 90%;
+    padding-top: 15px;
+  }
+
+  .social-media li {
+    padding: 25px 10px;
+  }
+
+
+  /* Enter Username */
+  #username-form label {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  #submit {
+    font-size: 2.5rem;
+  }
+
+  /* Question difficulty */
+  .diff-container {
+    padding: 0;
+  }
+
+  /* Game area */
+  #game-area > p {
+    width: 90%;
+  }
+
+  .answer-btn {
+    font-size: 2rem;
+    margin: 5px auto;
+  }
+  /* Modal */
+  #modal {
+    width: 90%;
+    top: 25%;
+    left: 5%;
+  }
+  
+  @keyframes animationTop {
+    from {top: -100px; opacity: 0}
+    to {top: 25%; opacity: 1}
+   }
  }
  
