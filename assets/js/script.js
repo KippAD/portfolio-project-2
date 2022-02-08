@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Assigning buttons on the home page
 const buttons = document.getElementsByTagName('button');
 const playBtn = buttons[0];
@@ -5,13 +7,13 @@ const rulesBtn = buttons[1];
 const scoresBtn = buttons[2];
 
 const gameArea = document.getElementById('game-area');
-const homeIcon = document.getElementById('home-button')
+const homeIcon = document.getElementById('home-button');
 homeIcon.addEventListener('click', refreshPage);
 
 // Event listeners for buttons on main menu
 playBtn.addEventListener('click', enterUsername);
 rulesBtn.addEventListener('click', loadRules);
-scoresBtn.addEventListener('click', loadScores)
+scoresBtn.addEventListener('click', loadScores);
 
 // High scores 
 let easyHighScore = localStorage.getItem('easyHighScore');
@@ -26,12 +28,14 @@ let question;
 let correctAnswer;
 let scoreCounter;
 let questionCounter;
+let highScoreCounter;
 let randomIndex = [];
 let loadPage;
 let questionDifficulty;
 let answerButtons;
+let answerButton;
+let displayDifficulty;
 let i;
-let disableAnswerBtn = false;
 
 /** Takes user to input where username is stored in local storage */
 function enterUsername() {
@@ -49,8 +53,8 @@ function enterUsername() {
     document.getElementById('submit').addEventListener('click', storeUsername);
   } else {
     selectDifficulty();
-  }; 
-};
+  } 
+}
 
 /** Shows html area where user selects a difficulty */
 function selectDifficulty() {
@@ -84,7 +88,7 @@ function selectDifficulty() {
   document.getElementById('clear-username').addEventListener('click', showModal);
   // Submit button to load game area with selected difficulty
   document.getElementById('play-btn').addEventListener('click', logDifficultyInput);
-};
+}
 
 // Sets the difficulty selection as the value of the radio input before game is loaded
 function logDifficultyInput() {
@@ -103,13 +107,13 @@ function setQuestionDifficulty() {
     questionDifficulty = [...normalQuestions];
   } else if (difficultySelection === "hard") {
     questionDifficulty = [...hardQuestions];
-  };
+  }
 
   answerButtons = document.getElementsByClassName('answer-btn');
-  displayCurrentQuiz()
+  displayCurrentQuiz();
   shuffle(questionDifficulty);
   runGame();
-};
+}
 
 /** Loads the game area where questions and answers are displayed */
 function runGame() {
@@ -126,7 +130,7 @@ function runGame() {
     <p class="bold">High Score: <span id="highScoreCounter">0</span></p>
   `;
   // Replaces home icon event listener whilst on game page
-  homeIcon.removeEventListener('click', refreshPage)
+  homeIcon.removeEventListener('click', refreshPage);
   modalType ="homeModal";
   homeIcon.addEventListener('click', showModal);
   // Sets counters for start of quiz
@@ -136,7 +140,7 @@ function runGame() {
   setHighScoreCounter();
   populateQuestion();
   assignAnswerBtns();
-};
+}
 
 /** Loads the rules page */
 function loadRules() {
@@ -170,7 +174,7 @@ function loadScores() {
       <a id="back-btn" href="../../index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
     </div>
   `;
-  };
+  }
   modalType = "wipeModal";
   loadPage = "home";
   document.getElementById('clearRecord').addEventListener('click', showModal);
@@ -183,7 +187,7 @@ function nextQuestion() {
     // Ensures that the high score counter matches the current score value
     if (scoreCounter > parseInt(highScoreCounter.innerHTML) ) {
       highScoreCounter.innerHTML = scoreCounter;
-    };
+    }
     populateQuestion();
   } else {
     disableAnswerBtns();
@@ -192,7 +196,7 @@ function nextQuestion() {
     modalType = "endQuiz";
     showModal();
   }
-};
+}
 
 /** Sets the html substitution values in game area */
 function populateQuestion() {
@@ -206,19 +210,19 @@ function populateQuestion() {
   document.getElementById('scoreCounter').innerHTML = scoreCounter;
   document.getElementById('question-sub').innerHTML = question;
   document.getElementById('questionCounter').innerHTML = questionCounter;
-};
+}
 
 /** Assigns answer button event listeners */
 function assignAnswerBtns() {
   answerButtons.forEach(answerButton => {
-    answerButton.addEventListener('click', checkAnswer)
+    answerButton.addEventListener('click', checkAnswer);
    });
-};
+}
 
 /** Disables answer buttons event listeners */
 function disableAnswerBtns() {
   answerButtons.forEach(answerButton => {
-    answerButton.removeEventListener('click', checkAnswer)
+    answerButton.removeEventListener('click', checkAnswer);
    });
 }
     
@@ -232,10 +236,10 @@ function checkAnswer(evt) {
     incorrectAudio();
     evt.target.classList.add("flash-red");
     showAnswer();
-  };
+  }
   questionCounter += 1;
   i++;
-};
+}
 
 /** Highlights correct answer green */
 function showAnswer() {
@@ -243,34 +247,34 @@ function showAnswer() {
   for (answerButton of answerButtons)
     if (answerButton.innerHTML === correctAnswer) {
       answerButton.classList.add("flash-green");
-      setTimeout(() => {
-        resetColors();
-        nextQuestion();
-   }, 2000);
-  };
-};
+      resetColors();
+  }
+}
 
 /** Ensures that the answer btn colors reset as each question is loaded */
 function resetColors() {
-  answerButtons.forEach(answerButton => {
-    answerButton.classList.remove("flash-green");
-    answerButton.classList.remove("flash-red");
-  });   
-};
+  setTimeout(() => {  
+    answerButtons.forEach(answerButton => {
+      answerButton.classList.remove("flash-green");
+      answerButton.classList.remove("flash-red");
+    });
+    nextQuestion(); 
+  }, 2000);
+}
 
 
 /** Sets high score counter to local storage value */ 
 function setHighScoreCounter() {
-  let highScoreCounter = document.getElementById('highScoreCounter');
+  highScoreCounter = document.getElementById('highScoreCounter');
 
   if (difficultySelection === 'easy') {
-    highScoreCounter.innerHTML = localStorage.getItem('easyHighScore')
+    highScoreCounter.innerHTML = localStorage.getItem('easyHighScore');
   } else if (difficultySelection === 'normal') {
-    highScoreCounter.innerHTML = localStorage.getItem('normalHighScore')
+    highScoreCounter.innerHTML = localStorage.getItem('normalHighScore');
   } else if (difficultySelection === 'hard') {
-    highScoreCounter.innerHTML = localStorage.getItem('hardHighScore')
-  };
-};
+    highScoreCounter.innerHTML = localStorage.getItem('hardHighScore');
+  }
+}
 
 /** Logs new high score if score counter exceeds it */ 
 function checkHighScore() {
@@ -288,25 +292,25 @@ function checkHighScore() {
     hardHighScore = scoreCounter;
     localStorage.setItem("hardHighScore", hardHighScore);
     highScoreCounter.innerHTML = localStorage.getItem("hardHighScore");
-  };
+  }
   return highScoreCounter;
-};
+}
 
 /** Ensures high score is always a number */ 
 function convertHighScore() {
  if (!easyHighScore) {
     easyHighScore = 0;
     localStorage.setItem("easyHighScore", easyHighScore);
-  };
+  }
   if (!normalHighScore) {
     normalHighScore = 0;
     localStorage.setItem("normalHighScore", normalHighScore);
-  }; 
+  } 
   if (!hardHighScore) {
     hardHighScore = 0;
     localStorage.setItem("hardHighScore", hardHighScore);
-  };
-};
+  }
+}
 
 /*
 * Disables normal and hard difficulty if high scores aren't above 9
@@ -321,13 +325,13 @@ function difficultyUnlocked() {
   if (localStorage.getItem('easyHighScore') < 9) {
     normalInput.type = "button";
     padlockIcon[0].style.display = "inline-block";
-  }; 
+  }
 
   if (localStorage.getItem('normalHighScore') < 9) {
     hardInput.type = "button";
     padlockIcon[1].style.display = "inline-block";
-  }; 
-};
+  }
+}
 
 /** Checks form validity and stores username in local storage upon submission */
 function storeUsername() {
@@ -337,9 +341,9 @@ function storeUsername() {
     username = document.getElementById('username').value;
     localStorage.setItem('username', username);
     selectDifficulty();
-  }; 
+  }
   return username;
-};
+}
 
 function generateAnswers() {
   // Populates answer buttons with random answer from array
@@ -347,16 +351,16 @@ function generateAnswers() {
   let n = 0;
   let currentAnswers = [];
   for (answerButton of answerButtons) {
-      j = randomIndex[n];
+      let j = randomIndex[n];
       answerButton.innerText = questionDifficulty[j].answer;
       currentAnswers.push(answerButton.innerText);
       n++;
-  };
+  }
   // Inserts correct answer if it does not exist already
   if (!currentAnswers.includes(correctAnswer)) {
     answerButtons[Math.floor(Math.random() * 4)].innerHTML = correctAnswer;
-  };
-};
+  }
+}
 
 /** Randomly generates an array of four numbers that generateAnswers
 * function will use to assign values to answer buttons.
@@ -368,11 +372,11 @@ function generateIndex() {
     let num = Math.floor(Math.random()* questionDifficulty.length);
     if (randomIndex.includes(num)) {
       num = Math.floor(Math.random()* questionDifficulty.length);
-    };
+    }
     randomIndex.push(num);
-  };  
+  }  
   return randomIndex;
-};
+}
 
 /** Shows user current quiz difficulty */
 function displayCurrentQuiz() {
@@ -393,11 +397,11 @@ function shuffle(array) {
     tempPosition = array[i];
     array[i] = array[newPosition];
     array[newPosition] = tempPosition;
-  };
+  }
   return array;
-};
+}
 
 function refreshPage() {
   clickAudio();
   document.location.reload(true);
-};
+}

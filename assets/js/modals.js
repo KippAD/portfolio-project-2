@@ -1,11 +1,10 @@
+let modal = document.getElementById('modal');
+let modalTitle = document.getElementById('modalTitle');
+let modalContent = document.getElementById('modalContent');    
 let modalType;
 
 /** Displays modal when certain events are triggered */
 function showModal() {
-  let modal = document.getElementById('modal');
-  let modalTitle = document.getElementById('modalTitle');
-  let modalContent = document.getElementById('modalContent');
-
   modal.style.display = 'block';
   // Specifies which modal to display
   if (modalType === "endQuiz") {
@@ -20,8 +19,8 @@ function showModal() {
   } else if (modalType === "createUsername") {
     confirmAudio();
     createUsernameModal();
-  };;
-};
+  }
+}
 
 /** Modal displayed upon quiz completion */
 function endQuizModal() {
@@ -36,10 +35,10 @@ function endQuizModal() {
     `;
   } else {
       quizCompletedModal();    
-    };
+    }
   document.getElementById('menu-btn').addEventListener('click', refreshPage);
   document.getElementById('reset-quiz').addEventListener('click', setQuestionDifficulty);
-};
+}
 
 // Different html to be displayed when user completes a quiz
 function quizCompletedModal() {
@@ -59,13 +58,13 @@ function quizCompletedModal() {
     `;
     document.getElementById('next-quiz').addEventListener('click', nextQuiz);
   }
-};
+}
 
 /** Modal display when user attempts to clear data */
 function wipeModal() {
   modal.style.backgroundColor = "white";
   modal.style.color = "black";
-  modalTitle.innerHTML = "Are you sure?"
+  modalTitle.innerHTML = "Are you sure?";
   modalContent.innerHTML = `
   <p>This action will clear all locally stored data, including high scores</p>
   <p>Are your sure you want to continue?</p>
@@ -74,13 +73,13 @@ function wipeModal() {
   `;
   document.getElementById('noBtn').addEventListener('click', closeModal);
   document.getElementById('yesBtn').addEventListener('click', clearLocalStorage);
-};
+}
 
 // Modal displayed when user clicks home icon in game area
 function goHomeModal() {
   modal.style.backgroundColor = "white";
   modal.style.color = "black";
-  modalTitle.innerHTML = "Are you sure?"
+  modalTitle.innerHTML = "Are you sure?";
   modalContent.innerHTML = `
   <p>If you go home now you will lose all of your progress in this game.</p>
   <p>Are your sure you want to go to the main menu?</p>
@@ -88,14 +87,14 @@ function goHomeModal() {
   <button id="yesBtn" class="btn">Yes</button>
   `;
   document.getElementById('noBtn').addEventListener('click', closeModal);
-  document.getElementById('yesBtn').addEventListener('click', refreshPage)
-};
+  document.getElementById('yesBtn').addEventListener('click', refreshPage);
+}
 
 /** The modal that displays when user tries to access the scores page without a stored username */
 function createUsernameModal() {
   modal.style.backgroundColor = "white";
   modal.style.color = "black";
-  modalTitle.innerHTML = "Sorry!"
+  modalTitle.innerHTML = "Sorry!";
   modalContent.innerHTML = `
   <p>Sorry, you need to enter a username to check the scores page!</p>
   <p>Create username?</p>
@@ -111,25 +110,25 @@ function nextQuiz() {
     difficultySelection = "normal";
   } else if (difficultySelection === "normal") {
     difficultySelection = "hard";
-  };
+  }
   setQuestionDifficulty();
   return difficultySelection;
-};
+}
 
 /** Closes the modal */
 function closeModal() {
   modal.style.display = 'none';
-};
+}
 
 /** Clears storage and assigns username to falsey value form local storage */
 function clearLocalStorage() {
   localStorage.clear();
   convertHighScore();
-  username = localStorage.getItem('username')
+  username = localStorage.getItem('username');
   if (loadPage === "home") {
     refreshPage();
   } else if (loadPage === "username") {
     enterUsername();
-  };
+  }
   closeModal();
-};
+}
