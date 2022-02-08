@@ -7,73 +7,43 @@
   margin: 0;
   border: none;
   font-family: Inconsolata, sans-serif;
-  /* Sets default font-size to 10px */
+  /* Sets default font-size to 10px (1rem to 10px) */
   font-size: 62.5%;
- }
-  
- html {
+}
+
+html {
   background: url('../images/map.jpg') center center no-repeat;
   background-size: cover;
   min-height: 100vh;
- }
-  
- a {
+}
+
+a {
   text-decoration: none;
   color: #000000;
- }
-  
-  
- /* Styles for the game panel and title bar */
- main {
-  width: 100vw;
+}
+
+
+/* Panel and main menu */
+main {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
- }
-  
- .panel {
+}
+
+.panel {
   width: 60vw;
   min-height: 600px;
   padding: 25px;
   background-color: #dda448ef;
   border-radius: 25px;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- }
-  
- .title-bar {
-  display: flex;
-  justify-content: start;
-  align-items: flex-end;
-  text-align: center;
- }
-  
- .title-bar > h1 {
-  width: 60%;
-  border-bottom: black solid 1px;
-  font-weight: 900;
-  font-size: 4rem;
- }
-  
- #icon-div {
-  width: 20%;
-  text-align: start;
- }
-  
- .line {
-  display: block;
-  width: 60%;
-  margin: 0 auto;
-  border-bottom: 1px solid black;
- }
-  
-  
- /* Game area of panel */
-  
- #game-area {
+}
+
+#game-area {
   width: 100%;
   height: 70%;
   flex-grow: 1;
@@ -81,142 +51,251 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  }
-  
- #game-area > h2 {
+}
+
+#game-area>h2 {
   width: 60%;
   font-size: 2.5rem;
   text-align: center;
- }
-  
- .menu-btn-container {
+}
+
+.menu-btn-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
- }
-  
-  
- /* Enter username page styles  */
-  
-  
- #username-form {
+}
+
+.title-bar {
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.title-bar>h1 {
+  width: 60%;
+  border-bottom: #000000 solid 1px;
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+#icon-div {
+  width: 20%;
+  text-align: start;
+}
+
+.line {
+  width: 60%;
+  margin: 0 auto;
+  border-bottom: 1px solid #000000;
+}
+
+/* Enter username area */
+#username-form {
   width: 40%;
   overflow: hidden;
- }
-  
- #username-form > label {
+}
+
+#username-form>label {
   display: block;
   font-size: 2.5rem;
   font-weight: 900;
- }
-  
- #username {
-  display: block;
+}
+
+#username {
   width: 100%;
   margin: 12.5px auto;
   padding: 20px 0px 20px 20px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
- }
-  
-  
- /* Select difficulty page */
- .username-container {
-  width: 60%;
+}
+
+/* Select difficulty page */
+.username-container {
   text-align: center;
- }
-  
- .username-container > h2 {
+}
+
+.username-container>h2 {
   font-size: 2.5rem;
   font-weight: 900;
- }
-  
- #clear-username {
-  display: block;
+}
+
+#clear-username {
   cursor: pointer;
   font-size: 2rem;
   font-weight: 700;
   transition: all 0.3s ease;
- }
-  
- .diff-container {
+}
+
+.diff-container {
   display: flex;
   width: 60%;
-  margin: 0 auto;
   padding: 25px;
   justify-content: space-between;
- }
-  
- .diff-container input[type="radio"] {
+}
+
+.diff-container input[type="radio"] {
   opacity: 0;
   position: fixed;
   width: 0;
- }
-  
- .diff-container label {
-  display: inline-block;
+}
+
+.diff-container label {
   width: 25%;
   padding: 20px;
-  border-radius: 10px;
   text-align: center;
-  font-size: 3rem;
   transition: all ease 0.3s;
- }
-  
- .diff-container input[type="radio"]:checked + label {
+}
+
+.diff-container input[type="radio"]:checked+label {
   background-color: #0A2463;
- }
-  
- #normalDifficulty, #hardDifficulty {
+}
+
+#normalDifficulty,
+#hardDifficulty {
   display: none;
- }
-  
- .lockIcon {
+}
+
+.lockIcon {
   display: none;
- }
-  
- .lockIcon > i {
+}
+
+.lockIcon>i {
   font-size: 3rem;
- }
-  
- /* Run game area */
-  
- .answer-container {
+}
+
+/* Game area of panel */
+.answer-container {
   width: 60%;
- }
-  
- #game-area > p, #game-area > h3 {
-  width: 75%;
+}
+
+#game-area>p {
   font-size: 2.5rem;
-  text-align: center;
- }
-  
- #game-area span {
+}
+
+#game-area span {
   font-size: 2.5rem;
- }
-  
- .answer-btn {
+}
+
+.answer-btn {
   display: block;
   width: 80%;
   margin: 10px auto;
-  padding: 10px;
-  font-size: 3rem;
   transition: all 0.3s ease;
- }
+}
 
- .flash-green {
-   background-color: #4CB963 !important;
- }
+.flash-green {
+  background-color: #4CB963 !important;
+}
 
- .flash-red {
+.flash-red {
   background-color: #C32F27 !important;
- }
-  
- /* Modal styles */
-  
- #modal {
+}
+
+/* Rules page */
+.rules-div {
+  width: 60%;
+  text-align: center;
+}
+
+.rules-div>p {
+  font-size: 2.5rem;
+  padding: 12.5px;
+  font-weight: 700;
+}
+
+/* Button styles accross game */
+.btn {
+  padding: 12.5px;
+  background-color: #4B5842;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #404D64;
+}
+
+.answer-btn:hover {
+  background-color: #404D64;
+}
+
+.menu-btn {
+  display: block;
+  width: 40%;
+  margin: 12.5px auto;
+  padding: 25px;
+}
+
+#back-btn {
+  height: 5vh;
+  position: absolute;
+  left: 20%;
+  top: 45%;
+  cursor: pointer;
+}
+
+#back-btn>i {
+  font-size: 5rem;
+}
+
+#home-button,
+#sound-icon {
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+#home-button>i,
+#sound-icon>i {
+  font-size: 4rem;
+  transition: all 0.3s ease;
+}
+
+#submit {
+  width: 100%;
+}
+
+#play-btn {
+  width: 60%;
+}
+
+#submit>i,
+#play-btn>i {
+  font-size: 2.5rem;
+}
+
+#reset-quiz {
+  cursor: pointer;
+}
+
+/* Social media links */
+.social-media {
+  text-align: center;
+}
+
+.social-media i {
+  font-size: 4rem;
+  transition: all ease 0.3s;
+}
+
+.social-media>li {
+  padding: 25px;
+  display: inline-block;
+}
+
+/* Default hover colour */
+i:hover,
+#clear-username:hover {
+  color: #666666;
+}
+
+/* Modal styles */
+#modal {
   display: none;
   width: 30%;
   border-radius: 15px;
@@ -226,164 +305,60 @@
   left: 35%;
   overflow: hidden;
   background-color: #7CDF64;
-  color: white;
+  color: #ffffff;
   text-align: center;
-  
+
   animation: animationTop;
   animation-duration: 0.4s;
- }
-  
- #modalContent {
-  margin: 0 auto;
-  padding-bottom: 12.5px;
-  text-align: center;
-  color: black;
- }
-  
- #modalTitle {
+}
+
+#modalTitle {
   font-size: 4rem;
   font-weight: 900;
   padding: 12.5px;
-  color: white;
+  color: #ffffff;
   background-color: #27213C;
- }
-  
- #modalContent > p {
+}
+
+#modalContent {
+  padding-bottom: 12.5px;
+  color: #000000;
+}
+
+#modalContent>p {
   font-size: 2.5rem;
   font-weight: 700;
   padding: 12.5px;
- }
-  
- @keyframes animationTop {
-  from {top: -100px; opacity: 0}
-  to {top: 35%; opacity: 1}
- }
-  
- /* Rules page */
- .rules-div {
-  width: 60%;
-  text-align: center;
- }
-  
- .rules-div > p {
-  font-size: 2.5rem;
-  padding: 12.5px;
-  font-weight: 700;
- }
-  
- /* Button styles accross game */
- .btn {
-  background-color: #4B5842;
-  color: white;
-  border-radius: 10px;
-  font-size: 3rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 12.5px;
- }
-  
- .btn:hover {
-  background-color: #404D64;
- }
-  
- .answer-btn:hover {
-  background-color: #404D64;
- }
-  
- .menu-btn {
-  display: block;
-  width: 40%;
-  margin: 12.5px auto;
-  padding: 25px;
-  width: 40%;
-  font-size: 3rem;
- }
+}
 
- #back-btn {
-   height: 5vh;
-   position: absolute;
-   left: 20%;
-   top: 45%;
-   cursor: pointer;
- }
+#noBtn,
+#yesBtn {
+  width: 15%;
+}
 
- #back-btn > i {
-  font-size: 5rem;
- }
+@keyframes animationTop {
+  from {
+    top: -100px;
+    opacity: 0
+  }
 
- #noBtn, #yesBtn {
-   width: 15%;
- }
-  
- #home-button, #sound-icon  {
-  display: inline-block;
-  margin-right: 5%;
-  cursor: pointer;
- }
-  
- #home-button > i, #sound-icon > i {
-  font-size: 4rem;
-  color: black;
-  transition: all 0.3s ease;
- }
-  
- #submit {
-  display: block;
-  width: 100%;
-  padding: 12.5px;
-  font-size: 3rem;
- }
-  
- #play-btn {
-  width: 60%;
-  padding: 12.5px;
-  font-size: 3rem;
- }
-  
- #submit > i, #play-btn > i {
-  font-size: 2rem;
- }
-  
- #reset-quiz {
-  cursor: pointer;
- }
-  
- /* Social media links */
- .social-media {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  list-style-type: none;
- }
-  
- .social-media i {
-  font-size: 4rem;
-  color: black;
-  transition: all ease 0.3s;
- }
-  
- .social-media > li {
-  padding: 25px;
-  display: inline-block;
- }
-  
- /* Default hover colour */
- i:hover, #clear-username:hover {
-  color: #666666;
- }
-  
- /* General classes */
-  
- .bold {
+  to {
+    top: 35%;
+    opacity: 1
+  }
+}
+
+/* General classes */
+.bold {
   font-weight: 900;
- }
-  
- /* Media queries for responsive design */
-  
- /* laptops and smallers screens */
- @media screen and (max-width: 1500px) {
-  
+}
+
+/* Media queries for responsive design */
+
+/* laptops and smallers screens */
+@media screen and (max-width: 1500px) {
+
+  /* Main menu */
   .panel {
     width: 75vw;
     margin: 5% auto;
@@ -397,9 +372,16 @@
   }
 
   @keyframes animationTop {
-    from {top: -100px; opacity: 0}
-    to {top: 30%; opacity: 1}
-   }
+    from {
+      top: -100px;
+      opacity: 0
+    }
+
+    to {
+      top: 30%;
+      opacity: 1
+    }
+  }
 
   #modalContent {
     padding: 10px;
@@ -410,118 +392,103 @@
     left: 15%;
   }
 
- }
-  
- /* Tablets */
- @media screen and (max-width: 1201px) {
-  
+}
+
+/* Tablets */
+@media screen and (max-width: 1201px) {
+
   /* Main menu */
   .panel {
     width: 70vw;
     min-height: 500px;
-    margin: 10% auto;
     padding: 25px 0;
   }
-  
+
   .title-bar {
     flex-wrap: wrap;
   }
-  
-  .title-bar > h1 {
+
+  .title-bar>h1 {
     padding-top: 12.5px;
     width: 80%;
     margin: 0 auto;
   }
-  
+
   #icon-div {
     width: 80%;
     margin: 0 auto;
   }
-  
+
   #game-area h2 {
     padding-top: 12.5px;
   }
-  
-  .menu-btn-container {
-    justify-content: center;
-  }
-  
+
   .menu-btn {
     width: 60%;
   }
 
-  #noBtn, #yesBtn {
-    width: 25%;
-  }
-  
   .line {
     width: 80%;
     margin: 10px auto;
   }
-  
-  .social-media > i {
-    font-size: 7rem;
-  }
-  
-  /* Rules page */
 
+  /* Enter username */
+  #username-form {
+    width: 60%;
+  }
+
+  /* Difficulty selection */
+  .diff-container,
+  .username-container,
+  #play-btn {
+    width: 80%;
+  }
+
+  /* Game area */
+  #game-area>p {
+    width: 85%;
+  }
+
+  /* Rules page */
   .rules-div {
     width: 70%;
   }
 
-  /* username form */
-  #username-form {
-    width: 60%;
-  }
-  
-  /* Difficulty selection */
-  .diff-container, .username-container, #play-btn {
-    width: 80%;
-  }
-  
-  label.btn {
-    font-size: 2.5rem;
-  }
-  
-  /* Run game area */
-  #game-area > p, #game-area > h3 {
-    width: 85%;
+  /* Modals */
+  #noBtn,
+  #yesBtn {
+    width: 25%;
   }
 
   /* Back btn */
   #back-btn {
     left: 20%;
   }
- }
-  
- /* Smaller Tablets */
- @media screen and (max-width: 950px) {
-  
+
+}
+
+/* Smaller Tablets */
+@media screen and (max-width: 950px) {
+
   /* Main menu */
   .panel {
     width: 80vw;
-    padding:25px;
+    padding: 25px;
   }
-  
-  .title-bar > h1 {
-    width: 80%;
+
+  .title-bar>h1 {
     font-size: 3.5rem;
   }
 
   #game-area h2 {
     width: 80%;
-    font-size: 2.5rem;
   }
 
-  #game-area .username-container > h2 {
+  #game-area .username-container>h2 {
     width: 100%;
   }
-  
-  .line {
-    width: 80%;
-    margin: 10px auto;
-  }
-   /* Difficulty selection */
+
+  /* Difficulty selection */
   label.btn {
     padding: 15px;
   }
@@ -539,68 +506,55 @@
   }
 
   @keyframes animationTop {
-    from {top: -100px; opacity: 0}
-    to {top: 35%; opacity: 1}
-   }
+    from {
+      top: -100px;
+      opacity: 0
+    }
+
+    to {
+      top: 35%;
+      opacity: 1
+    }
+  }
 
   #modalTitle {
     font-size: 3rem;
   }
 
-  #modalContent > p {
+  #modalContent>p {
     font-size: 2rem;
   }
 
   /* Back btn */
- #back-btn {
+  #back-btn {
     left: 10%;
   }
- }
-  
- /* Tiny Tablets */
- @media screen and (max-width: 710px) {
-  
+}
+
+/* Very small tablets */
+@media screen and (max-width: 710px) {
+
   /* Main menu */
-  .panel {
-    width: 80vw;
-  }
-  
-  #game-area h2 {
-    width: 80%;
-    font-size: 2.5rem;
-  }
-  
-  .title-bar > h1, #icon-div, .line {
+  .title-bar>h1,
+  #icon-div,
+  .line {
     width: 90%;
   }
-  
+
   /* Difficulty selection */
   label.btn {
     padding: 15px 30px;
     font-size: 2rem;
     width: 15%;
   }
-  
-  .diff-container, .username-container, #play-btn {
-    width: 80%;
-  }
-  
-  /* Run game area */
+
+  /* Game area */
   .answer-container {
     width: 80%;
   }
-  
+
   .answer-btn {
     width: 100%;
-  }
-  
-  #game-area > p, #game-area > h3 {
-    font-size: 2rem;
-  }
-
-  /* Scores page */
-  #clearRecord {
-    width: 80%;
   }
 
   /* Scores page */
@@ -608,133 +562,135 @@
     width: 90%;
   }
 
-  .rules-div > p {
+  .rules-div>p {
     font-size: 2rem;
+  }
+
+  #clearRecord {
+    width: 80%;
   }
 
   /* Back btn */
   #back-btn {
     display: none;
   }
- }
-  
- /* Large mobile Devices */
- @media screen and (max-width: 580px) {
+}
+
+/* Large mobile Devices */
+@media screen and (max-width: 580px) {
+
   /* Main menu */
   .panel {
     width: 90vw;
     padding: 25px 0;
   }
-  
-  .title-bar > h1 {
+
+  .title-bar>h1 {
     width: 80%;
     font-size: 2.5rem;
-  }
-
-  .menu-btn {
-    padding: 20px;
   }
 
   #icon-div {
     width: 80%;
   }
-  
-  /* Enter username / difficuly selection */
+
+  /* Enter username */
   #username-form {
     width: 70%;
   }
 
-  #game-area > h2, #game-area span {
-    padding: 0;
+  /* Game area */
+  #game-area>h2,
+  #game-area span {
     font-size: 2rem;
   }
 
-  #game-area .username-container > h2{
+  .answer-btn {
+    font-size: 2.5rem;
+  }
+
+  /* Difficulty selection */
+  #game-area .username-container>h2 {
     font-size: 2rem;
   }
 
   .diff-container i {
     font-size: 2rem;
   }
-  
-  label.btn {
-    padding: 15px 30px;
-    font-size: 2rem;
-    width: 15%;
-  }
-
-  /* Social media */
-  .social-media > li {
-    padding: 12.5px;
-  }
-
-  .social-media i, #icon-div i{
-    font-size: 3rem;
-  }
-  
-  /* Run game area */
-  #game-area > h3 {
-    margin-bottom: 12.5px;
-  }
 
   /* Scores page */
   #clearRecord {
     font-size: 2rem;
   }
- }
-  
- /* Mobile Devices */
- @media screen and (max-width: 500px) {
-  
+
+  /* Social media */
+  .social-media>li {
+    padding: 12.5px;
+  }
+
+  .social-media i,
+  #icon-div i {
+    font-size: 3rem;
+  }
+
+  /* Modals */
+  #modal {
+    top: 30%;
+  }
+
+  @keyframes animationTop {
+    from {
+      top: -100px;
+      opacity: 0
+    }
+
+    to {
+      top: 30%;
+      opacity: 1
+    }
+  }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 500px) {
+
   /* Main menu */
   .menu-btn {
     padding: 15px 20px;
   }
 
   /* Enter Username */
-  #username-form > label {
+  #username-form>label {
     font-size: 2rem;
   }
-  
+
   /* Difficulty selection */
-  .username-container > h2 {
+  .username-container>h2 {
     font-size: 2rem;
   }
-  
+
   .diff-container {
     flex-direction: column;
     padding: 12.5px;
   }
-  
-  #clear-username {
-    font-size: 2rem;
-  }
-  
+
   label.btn {
-    display: block;
+    width: 80%;
     padding: 12.5px;
     margin: 10px auto;
-    font-size: 2rem;
-    width: 80%;
   }
 
   #play-btn {
     width: 35%;
-    padding: 12.5px;
     background-color: #474747;
     font-size: 2rem;
     align-self: start;
     margin-left: 15%;
   }
-  
-  /* Run game area */
-  .answer-btn {
-    font-size: 2.5rem;
-  }
-  
-  #game-area > p, #game-area > h3 {
+
+  /* Game area */
+  #game-area>p {
     padding: 5px 0;
-    font-size: 2rem;
   }
 
   /* Modals */
@@ -743,17 +699,24 @@
     top: 30%;
     left: 10%;
   }
-  
-  @keyframes animationTop {
-    from {top: -100px; opacity: 0}
-    to {top: 30%; opacity: 1}
-   }
 
- }
-  
- /* small Mobile Devices */
- @media screen and (max-width: 400px) {
-  
+  @keyframes animationTop {
+    from {
+      top: -100px;
+      opacity: 0
+    }
+
+    to {
+      top: 30%;
+      opacity: 1
+    }
+  }
+
+}
+
+/* small Mobile Devices */
+@media screen and (max-width: 400px) {
+
   /* Main menu */
   .panel {
     width: 95vw;
@@ -761,7 +724,8 @@
     padding: 0;
   }
 
-  .title-bar > h1, #game-area > h2 {
+  .title-bar>h1,
+  #game-area>h2 {
     width: 90%;
   }
 
@@ -774,41 +738,38 @@
     padding: 25px 10px;
   }
 
-
-  /* Enter Username */
-  #username-form label {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
+  /* Enter username */
   #submit {
     font-size: 2.5rem;
   }
 
-  /* Question difficulty */
+  /* Select difficulty */
   .diff-container {
     padding: 0;
   }
 
   /* Game area */
-  #game-area > p {
-    width: 90%;
-  }
-
   .answer-btn {
     font-size: 2rem;
     margin: 5px auto;
   }
-  /* Modal */
+
+  /* Modals */
   #modal {
     width: 90%;
     top: 25%;
     left: 5%;
   }
-  
+
   @keyframes animationTop {
-    from {top: -100px; opacity: 0}
-    to {top: 25%; opacity: 1}
-   }
- }
- 
+    from {
+      top: -100px;
+      opacity: 0
+    }
+
+    to {
+      top: 25%;
+      opacity: 1
+    }
+  }
+}
