@@ -302,7 +302,7 @@
  #back-btn {
    height: 5vh;
    position: absolute;
-   left: 400px;
+   left: 20%;
    top: 45%;
    cursor: pointer;
  }
@@ -394,6 +394,11 @@
     padding: 10px;
   }
 
+  /* Back btn */
+  #back-btn {
+    left: 15%;
+  }
+
  }
   
  /* Tablets */
@@ -461,6 +466,11 @@
   #game-area > p, #game-area > h3 {
     width: 85%;
   }
+
+  /* Back btn */
+  #back-btn {
+    left: 20%;
+  }
  }
   
  /* Smaller Tablets */
@@ -503,6 +513,11 @@
 
   #modalContent > p {
     font-size: 2rem;
+  }
+
+  /* Back btn */
+ #back-btn {
+    left: 10%;
   }
  }
   
@@ -558,6 +573,11 @@
 
   .rules-div > p {
     font-size: 2rem;
+  }
+
+  /* Back btn */
+  #back-btn {
+    display: none;
   }
  }
   
