@@ -230,6 +230,19 @@ The testing of the site can be found [**here**](TESTING.md)
 ## **Deployment**
 
 ### **To deploy the project**
+Github pages was used to host the application:
+
+1. In the selected repository, navigate to the **Settings** tab.
+<p  align="center"><img  src="assets/readme-images/publish-1.jpg" alt="Repository main page with settings highlighted" width="75%"></p>
+
+2. From the settings tab, click **Pages** in the bottom left hand corner of the screen.
+<p  align="center"><img  src="assets/readme-images/publish-2.jpg" alt="Repository settings tab with pages button highlighted" width="75%"></p>
+
+3. Once in the **Pages** tab expand the **none** drop down menu and select **main**, before finally clicking **save**.
+<p  align="center"><img  src="assets/readme-images/publish-3.jpg" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
+
+4. Once saved, the live link to the repositiory will appear.
+<p  align="center"><img  src="assets/readme-images/publish-4.jpg" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
 
 [Back to contents](#contents)
 
