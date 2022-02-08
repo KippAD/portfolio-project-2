@@ -247,6 +247,19 @@ Github pages was used to host the application:
 [Back to contents](#contents)
 
 ### **To clone the project**
+The repository can be cloned and continued by other developers:
+
+1. In the selected repository open the **Code** drop down menu.
+<p  align="center"><img  src="assets/readme-images/clone-1.jpg" alt="Repository main page with settings highlighted" width="75%"></p>
+
+2. Copy the https url located in the **clone** box.
+<p  align="center"><img  src="assets/readme-images/clone-2.jpg" alt="Repository settings tab with pages button highlighted" width="75%"></p>
+
+3. Open the IDE of preference and paste the url in to a **git clone** command within a **Git Bash** terminal.
+<p  align="center"><img  src="assets/readme-images/clone-3.png" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
+
+4. Once the command is run the IDE will populate with the cloned repository files.
+<p  align="center"><img  src="assets/readme-images/clone-4.png" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
 
 [Back to contents](#contents)
 
