@@ -76,15 +76,20 @@ function selectDifficulty() {
   `;
   // Checks if difficulty is unlocked
   difficultyUnlocked();
-  difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
 
   // 'Not you?' text that clears local storage and reloads enter username page
   modalType = "wipeModal";
   loadPage = "username";
   document.getElementById('clear-username').addEventListener('click', showModal);
   // Submit button to load game area with selected difficulty
-  document.getElementById('play-btn').addEventListener('click', setQuestionDifficulty);
+  document.getElementById('play-btn').addEventListener('click', logDifficultyInput);
 };
+
+// Sets the difficulty selection as the value of the radio input before game is loaded
+function logDifficultyInput() {
+  difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
+  setQuestionDifficulty();
+}
 
 /** Selects which array to draw questions from depending on selected difficulty */
 function setQuestionDifficulty() {

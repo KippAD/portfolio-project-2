@@ -24,7 +24,29 @@ function showModal() {
 function endQuizModal() {
   modal.style.backgroundColor = "white";
   modalTitle.innerHTML = "Quiz Complete!";
-  if (scoreCounter >= 9) {
+  if (scoreCounter < 9) {
+    modalContent.innerHTML = `
+    <p>Well done! You scored ${scoreCounter} out of 12 on the ${difficultySelection} quiz..</p>
+    <p>You need to answer 9 questions correctly to complete the quiz.</p>
+    <button id="menu-btn" class="btn">Main Menu</button>
+    <button id="reset-quiz" class="btn">Try Again</button>
+    `;
+  } else {
+      quizCompletedModal();    
+    };
+  document.getElementById('menu-btn').addEventListener('click', refreshPage);
+  document.getElementById('reset-quiz').addEventListener('click', setQuestionDifficulty);
+};
+
+// Different html to be displayed when user completes a quiz
+function quizCompletedModal() {
+  if (difficultySelection === "hard") {
+    modalContent.innerHTML = `
+      <p>Well done! You scored ${scoreCounter} out of 12 on the ${difficultySelection} quiz..</p>
+      <p>Congratulations, you have completed every quiz difficulty! You are a Capitals Master.</p>
+      <button id="menu-btn" class="btn">Main Menu</button>
+    `;
+  } else {
     modalContent.innerHTML = `
     <p>Well done on completing the ${difficultySelection} quiz, you scored ${scoreCounter} out of 12.</p>
     <p>Your score means that you are eligible to play the next difficulty level!
@@ -33,18 +55,8 @@ function endQuizModal() {
     <button id="next-quiz" class="btn">Next Quiz</button>
     `;
     document.getElementById('next-quiz').addEventListener('click', nextQuiz);
-  } else {
-    modalContent.innerHTML = `
-    <p>Well done on completing the ${difficultySelection} quiz, you scored ${scoreCounter} out of 12.</p>
-    <p id="nextQuizText"></p>
-    <button id="menu-btn" class="btn">Main Menu</button>
-    <button id="reset-quiz" class="btn">Try Again</button>
-    `;
   }
-  document.getElementById('menu-btn').addEventListener('click', refreshPage);
-  document.getElementById('reset-quiz').addEventListener('click', setQuestionDifficulty);
-
-}
+};
 
 /** Modal display when user attempts to clear data */
 function wipeModal() {
@@ -83,6 +95,7 @@ function nextQuiz() {
     difficultySelection = "hard";
   };
   setQuestionDifficulty();
+  return difficultySelection;
 };
 
 /** Closes the modal */
