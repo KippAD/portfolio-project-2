@@ -37,7 +37,7 @@ The Capitals of the World Quiz is a multiple choice quiz game that tests a user'
 ### **Objectives**
 The UX objectives of the project are:
 
-1. The application interface is intuitive to a first time user, the function and purpose clear, and the navigation progressive and natural. The user enjoys using the site and actions are second nature to them.
+1. The application interface is intuitive to a first time user, its function and purpose is clear, and the navigation is progressive and natural. The user enjoys using the site and actions come as second nature to them.
 
 2. To build an application with an aesthetically pleasing design that is responsive across multiple devices, and that elicits a positive emotional response from the user.
 
@@ -55,7 +55,7 @@ The target audience for this project has the scope to be very broad. Some exampl
 ### **Action Plan**
 The Capitals of the World Quiz was designed to meet the UX objectives and ensure that each of these target demographics has a positive experience:
  
-1. Navigation is clear so that users of all ages are able to move through the game easily. Where a user can initiate an action it is obvious and clearly marked with buttons and icons. Feedback is given to user actions through modals, elements responding to mouse, tooltips and sound effects.
+1. Navigation is clear so that users of all ages are able to move through the game easily. Where a user can initiate an action it is obvious and clearly marked with buttons and icons. Feedback is given to user actions through modals, elements responding to the mouse, tooltips and sound effects.
 
 2. Questions are divided into different difficulties, enabling casual or younger users to work through the game incrementally without being overloaded with questions that are too difficult, and allowing more advanced users to test their knowledge of tougher questions. These difficulties can be unlocked when a user achieves a certain threshold of correct answers, adding an objective to the game and meaning that users will be able to settle on their level of difficulty through playing. 
 
@@ -67,7 +67,7 @@ The Capitals of the World Quiz was designed to meet the UX objectives and ensure
 ## **Design**
 
 ### **Inspiration**
-
+---
 <p  align="center">
     <img  src="assets/readme-images/readme-map.jpeg" alt="The color scheme developed for the Capitals of the World Quiz" width="40%">
     <img  src="assets/readme-images/telegraph.jpeg" alt="The color scheme developed for the Capitals of the World Quiz" width="40%">
@@ -96,15 +96,15 @@ The colors on the application were generated with [**Coolors**](https://coolors.
  
 ### **Wireframes**
 ---
-[**Figma**](figma.com) was used to wireframe the design of the application.
+[**Figma**](https://www.figma.com/) was used to wireframe the design of the application.
 
-##### **Main Menu**
+#### **Main Menu**
 <img  src="assets/readme-images/menu-wireframe.png" alt="Wireframes of the main menu" width="100%">
 
-#### **Username**
+#### **Username Input**
 <img  src="assets/readme-images/username-wireframe.png" alt="Wireframes of the username area" width="100%">
 
-#### **Difficulty**
+#### **Difficulty Selection**
 <img  src="assets/readme-images/difficulty-wireframe.png" alt="Wireframes of the difficulty selection" width="100%">
 
 #### **Game Area**
@@ -116,15 +116,14 @@ The wireframes were used as a guide throughout development. The final product do
 
 ## Features
 
-### **Current Features**
----
+### **Current Features:**
 
 ### **Main Menu**
 ---
 
 <img  src="assets/readme-images/main-menu.png" alt="The Capitals of the World Quiz main menu" width="100%">
 
-The main menu is the first thing that the user sees when loading the application and acts as staging area from which all other areas are accessed.
+The main menu is the first thing that the user sees when loading the application, and it acts as staging area from which all other areas are accessed.
 
 - The main title and subheading prioritizes explaining the purpose of the application to the user.
 - Menu buttons indicate navigation options to the user (To initiate the game, to read the rules, and to check high scores).
@@ -152,7 +151,7 @@ The difficulty selection form is loaded once a username exists, allowing the use
 
 - Three different levels of difficulty: Easy, Normal, Hard.
 - Normal and Hard difficulties are locked by default and are unlocked if 75% of questions are answered correctly in a quiz of the preceding difficulty.
-- Upon loading the form with the correct score, the padlock is removed and the next difficulty playable.
+- Upon loading the form with the correct score, the padlock is removed and the next difficulty becomes playable.
 - The user can clear the existing name and its corresponding local data in order to revert back to the username input area.
 
 
@@ -202,9 +201,8 @@ Throughout the application modals pop up to respond to, and confirm, user action
  
 [Back to contents](#contents)
 
-### **Future Features**
+### **Future Features:**
 ---
-
 Here are some examples for features that could be included in further development of the game.
 
 - **Multiple Users**: Multiple profiles can be stored on the game, meaning that two users can play on the same device without wiping the others data.
@@ -240,7 +238,7 @@ The Capitals of the World Quiz was built with the following technologies:
 [Back to contents](#contents)
 
 ## **Testing**
-The testing of the site can be found [**here**](TESTING.md)
+Information concerning the testing of the application can be found [**here**](TESTING.md)
 
 [Back to contents](#contents)
 
@@ -255,7 +253,7 @@ Github pages was used to host the application:
 2. From the settings tab, click **Pages** in the bottom left hand corner of the screen.
 <p  align="center"><img  src="assets/readme-images/publish-2.jpg" alt="Repository settings tab with pages button highlighted" width="75%"></p>
 
-3. Once in the **Pages** tab expand the **none** drop down menu and select **main**, before finally clicking **save**.
+3. Once in the **Pages** tab expand the **None** drop down menu and select **main**, before finally clicking **Save**.
 <p  align="center"><img  src="assets/readme-images/publish-3.jpg" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
 
 4. Once saved, the live link to the repositiory will appear.
@@ -283,15 +281,15 @@ The repository can be cloned and evolved by other developers:
 ## **Credits**
 
 ### Code
-The shuffle function in the script, also known as Fisher-Yates shuffle, was learnt following this tutorial:
-[**Link to Tutorial**](https://www.youtube.com/watch?v=myL4xmtAVtw&t=4s)
+The shuffle function in the script, also known as Fisher-Yates shuffle, was learnt following a tutorial on youtube.
 
-By [**All Things JavaScript, LLC**](https://www.youtube.com/c/AllThingsJavaScriptLLC?app=desktop)
+[**Link to Tutorial**](https://www.youtube.com/watch?v=myL4xmtAVtw&t=4s) - By [**All Things JavaScript, LLC**](https://www.youtube.com/c/AllThingsJavaScriptLLC?app=desktop)
 
 [Back to contents](#contents)
 
 ### **Media**
 **Background** - The background image on the site was sourced from [**Freepik**](https://www.freepik.com/home) user [**Pikisuperstar**](https://www.freepik.com/pikisuperstar).
+
 [**Link to IMG**](https://www.freepik.com/free-vector/vintage-world-map-cartography-concept_5671433.htm#query=old%20map&position=29&from_view=search);
 
 **Sounds** - The sounds in the application were downloaded from open source library [**Mixkit**](https://mixkit.co/free-sound-effects/win/.)

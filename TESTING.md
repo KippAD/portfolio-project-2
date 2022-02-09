@@ -39,7 +39,7 @@ All warnings returned by the validator have since been resolved and all HTML cod
 
 ### **CSS Jigsaw Validator**
 ---
-The HTML of the Capitals of the World Quiz was tested using the [**Jigsaw CSS Validator**](https://jigsaw.w3.org/css-validator/). 
+The CSS of the Capitals of the World Quiz was tested using the [**Jigsaw CSS Validator**](https://jigsaw.w3.org/css-validator/). 
 
 <p  align="center"><img  src="assets/readme-images/css-errors.png" alt="Errors and warnings returned by the css jigsaw validator" width="50%"></p>
 
@@ -79,7 +79,7 @@ The application is desktop first, meaning that it was designed to function at it
 
 <p  align="center"><img  src="assets/readme-images/responsive-testing.png" alt="List of devices that responsiveness has been tested on" width="50%"></p>
 
-The issue that kept returning seemed to be centering the modal in the middle of the screen vertically when it pops up - this was somewhat remedied through media queries but sometimes it will still appear slightly off center. Another issue stems from one of the padlock icons breaking to a second line before the other - this can knock the symmetry of the difficulty selection page. 
+The issue that kept returning seemed to be centering the modal in the middle of the screen vertically when it pops up - this was somewhat remedied through media queries but sometimes it will still appear slightly off center. Another issue stems from one of the padlock icons breaking onto a second line before the other - this can knock the symmetry of the difficulty selection page. 
 
 The application did not maintain its design on very small mobile phones such as the iPhone 4 (320px width) during testing. Although still playable on the iPhone 5/5s, the menu pushes icons off of the screen and can disjoint the whole page. This could be a focus for future development, however within the current scope it was not a priority to add responsiveness for devices as old as the iPhone 3/4/4s.
 
@@ -114,11 +114,11 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 
 ### **Resolved**
 
-**Answers Appearing Twice** - One of the main bugs throughout the development process was the issue of randomizing the answer options in the game. After trying different functions, the issue was finally resolved by selecting four random indexes and pushing their values to an array. By using the .includes() method, answers were prevented from appearing twice. The same method was then used for the correct answer - an index of which answer button to fill is generated, but will only fill it if the correct answer does not already exist in the array of generated answers.
+**Answers Appearing Twice** - One of the main bugs throughout the development process was the issue of randomizing the answer options in the game. After trying different functions, the issue was finally resolved by selecting four random indexes and pushing their values to an array. By using the .includes() method, answers were prevented from appearing twice. The same method was then used for the correct answer - it would only be added to the answer button if its value did not already exist in the array.
 
 **Answers Not Displaying** - An issue that took up a fair amount of time in the development process was the answers not showing when the game was started at the end of a quiz. After hours of comparing values and types of data, the solution was simply that the buttons had to be reassigned on every game iteration.
 
-**Home/Back Icon** - In pages the home icon and back icon would not load the main menu. The reason for this was that the file path in the a element was set from the position of the JavaScript file, and not from the index.html itself - where the JavaScript was inserting the html.
+**Home/Back Icon** - In pages the home icon and back icon would not load to the main menu. The reason for this was that the file path in the a element was set from the position of the JavaScript file, and not from the index.html itself - where the JavaScript was inserting the html.
 
 **Hover Issues** - During the game the CSS hover pseudo class would not function as expected. The issue was related to the CSS alterations made by JavaScript taking precedent. The bug was resolved by adding classes with greater importance to the function, meaning that the hover had better priority.
 
@@ -133,3 +133,5 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 **Padlock** - The padlock icon in the difficulty selection are meant to start on a new line at the same point. There are instances where sometimes one padlock will break onto a new line before the other, upsetting the symmetry of the design.
 
 [Back to contents](#contents)
+
+[**Back to Readme**](README.md)
