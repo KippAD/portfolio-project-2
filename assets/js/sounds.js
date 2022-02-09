@@ -40,30 +40,35 @@ function setSoundIcon() {
   }
 }
 
+/** Audio for a click */
 function clickAudio() {
   if (sound === "on") {
     clickSound.play();
   }
 }
 
+/** Audio for a correct answer */
 function correctAudio() {
   if (sound === "on") {
     correctSound.play();
   }
 }
 
+/** Audio for an incorrect answer */
 function incorrectAudio() {
   if (sound === "on") { 
     incorrectSound.play();
   }
 }
 
+/** Audio for quiz completion */
 function endGameAudio() {
   if (sound === "on") { 
     endGameSound.play();
   }
 }
 
+/** Audio for when a confirm modal pops up */
 function confirmAudio() {
   if (sound === "on") { 
     confirmModalSound.play();

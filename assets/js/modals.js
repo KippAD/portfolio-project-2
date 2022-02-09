@@ -61,7 +61,7 @@ function quizCompletedModal() {
   }
 }
 
-/** Modal display when user attempts to clear data */
+/** Modal displayed when user attempts to clear data */
 function wipeModal() {
   modal.style.backgroundColor = "white";
   modalTitle.innerHTML = "Are you sure?";
@@ -89,7 +89,7 @@ function goHomeModal() {
   document.getElementById('yesBtn').addEventListener('click', refreshPage);
 }
 
-/** The modal that displays when user tries to access the scores page without a stored username */
+/** Modal that displays when user tries to access the scores page without a stored username */
 function createUsernameModal() {
   modal.style.backgroundColor = "white";
   modalTitle.innerHTML = "Sorry!";
@@ -103,6 +103,7 @@ function createUsernameModal() {
   document.getElementById('yesBtn').addEventListener('click', enterUsername);
 }
 
+/** Will load the next quiz with the difficulty one higher than currently on */
 function nextQuiz() {
   if (difficultySelection === "easy") {
     difficultySelection = "normal";

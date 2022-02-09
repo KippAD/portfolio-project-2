@@ -37,7 +37,7 @@ let answerButton;
 let displayDifficulty;
 let i;
 
-/** Takes user to input where username is stored in local storage */
+/** Loads html for username input area */
 function enterUsername() {
   clickAudio();
   closeModal();
@@ -56,7 +56,7 @@ function enterUsername() {
   } 
 }
 
-/** Shows html area where user selects a difficulty */
+/** Loads html for difficulty selection */
 function selectDifficulty() {
   clickAudio();
   gameArea.innerHTML = `
@@ -78,24 +78,21 @@ function selectDifficulty() {
     </div>
     <button type="submit" id="play-btn" class="btn">Play <i class="fas fa-arrow-right"></i></button>
   `;
-  // Checks if difficulty is unlocked
   difficultyUnlocked();
-
   // 'Not you?' text that clears local storage and reloads enter username page
   modalType = "wipeModal";
   loadPage = "username";
   document.getElementById('clear-username').addEventListener('click', showModal);
-  // Submit button to load game area with selected difficulty
   document.getElementById('play-btn').addEventListener('click', logDifficultyInput);
 }
 
-// Sets the difficulty selection as the value of the radio input before game is loaded
+/** Sets the difficulty selection as the value of the radio input before loading the game */
 function logDifficultyInput() {
   difficultySelection = document.querySelector('input[name="difficulty"]:checked').value;
   setQuestionDifficulty();
 }
 
-/** Selects which array to draw questions from depending on selected difficulty */
+/** Sets the question difficulty based on the value of difficultySelection */
 function setQuestionDifficulty() {
   closeModal();
   clickAudio();
@@ -132,7 +129,7 @@ function runGame() {
   homeIcon.removeEventListener('click', refreshPage);
   modalType ="homeModal";
   homeIcon.addEventListener('click', showModal);
-  // Sets counters for start of quiz
+  // Set counters for start of quiz
   i = 0;
   scoreCounter = 0;
   questionCounter = 1;
@@ -141,7 +138,7 @@ function runGame() {
   assignAnswerBtns();
 }
 
-/** Loads the rules page */
+/** Loads the html of the rules page */
 function loadRules() {
   clickAudio();
   gameArea.innerHTML = `
@@ -156,7 +153,7 @@ function loadRules() {
   document.getElementById('rules-play').addEventListener('click', enterUsername);
 }
 
-/** Loads the rules page */
+/** Loads the html of the scores page */
 function loadScores() {
   clickAudio();
   if (!localStorage.getItem('username')) {
@@ -197,12 +194,12 @@ function nextQuestion() {
   }
 }
 
-/** Sets the html substitution values in game area */
+/** Fills game area html with the correct values */
 function populateQuestion() {
   question = questionDifficulty[i].question;
   correctAnswer = questionDifficulty[i].answer;
 
-  // Populates answer buttons with random answer from array
+  // Populates answer buttons with random answers from array
   generateIndex();
   generateAnswers();
 
@@ -314,10 +311,7 @@ function convertHighScore() {
   }
 }
 
-/*
-* Disables normal and hard difficulty if high scores aren't above 9
-* and displays padlock icon
-*/
+/** Checks highscores to see if difficulty level is unlocked */
 function difficultyUnlocked() {
   let normalInput = document.getElementById('normalDifficulty');
   let hardInput = document.getElementById('hardDifficulty');
@@ -346,8 +340,8 @@ function storeUsername() {
   return username;
 }
 
+/** Generates the answers based on the index generated in generateIndex */
 function generateAnswers() {
-  // Populates answer buttons with random answer from array
   answerButtons = Array.from(answerButtons);
   let n = 0;
   let currentAnswers = [];
@@ -402,6 +396,7 @@ function shuffle(array) {
   return array;
 }
 
+/** Refreshes page */
 function refreshPage() {
   clickAudio();
   document.location.reload(true);
