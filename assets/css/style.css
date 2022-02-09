@@ -446,6 +446,7 @@ i:hover,
 
   /* Game area */
   #game-area>p {
+    text-align: center;
     width: 85%;
   }
 
@@ -691,6 +692,7 @@ i:hover,
   /* Game area */
   #game-area>p {
     padding: 5px 0;
+    font-size: 2rem;
   }
 
   /* Modals */
@@ -757,7 +759,6 @@ i:hover,
   /* Modals */
   #modal {
     width: 90%;
-    top: 25%;
     left: 5%;
   }
 
