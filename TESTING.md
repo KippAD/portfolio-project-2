@@ -33,7 +33,7 @@ The HTML of the Capitals of the World Quiz was tested using [**W3C HTML Validato
 
 <p  align="center"><img  src="assets/readme-images/html-validation.png" alt="Final html w3c validator results" width="50%"></p>
 
-All warnings returned by the validator have since been resolved and all HTML code passes through without issue (The exception being the empty h3 tag mentioned previously).
+All warnings returned by the validator have since been resolved and all HTML code now passes through without issue (The exception being the empty h3 tag mentioned previously).
 
 [Back to contents](#contents)
 
@@ -53,7 +53,7 @@ Both of these issues have since been resolved and the validator no longer shows 
 
 ## **Jshint Validator (JavaScript)**
 ---
-The The JavaScript of the Capitals of the World Quiz was tested using the [**Jshint Javascript Validator**](https://jshint.com/). 
+The JavaScript of the Capitals of the World Quiz was tested using the [**Jshint Javascript Validator**](https://jshint.com/). 
 
 <p  align="center"><img  src="assets/readme-images/js-errors.png" alt="Jshint validator initial results" width="75%"></p>
 
@@ -75,13 +75,14 @@ All warnings indicated by Jshint were resolved and the validator no longer retur
 
 ## **Responsiveness**
 
-The application is desktop first, meaning that it was designed to function at its best on larger screen sizes, however it has also been made responsive to most viewport dimensions. The following devices are all of the specific resolutions that the application has been tested on:
+The application is desktop first, meaning that it was designed to function at its best on larger screen sizes, however it has also been made responsive to most viewport dimensions. The following is a list of all of the specific resolutions and devices that the application has been tested on:
 
 <p  align="center"><img  src="assets/readme-images/responsive-testing.png" alt="List of devices that responsiveness has been tested on" width="50%"></p>
 
-The issue that kept returning seemed to be centering the modal in the middle of the screen vertically when it pops up - this was somewhat remedied through media queries but sometimes it will still appear slightly off center.
+The issue that kept returning seemed to be centering the modal in the middle of the screen vertically when it pops up - this was somewhat remedied through media queries but sometimes it will still appear slightly off center. Another issue stems from one of the padlock icons breaking to a second line before the other - this can knock the symmetry of the difficulty selection page. 
 
-The application also struggled on very small mobile phones (320px width) during testing. Although still playable, the menu pushes icons off of the screen and disjoints the whole page.
+// Fix this is time
+The application also struggled on very small mobile phones (320px width) during testing. Although still playable, the menu pushes icons off of the screen and can disjoint the whole page.
 
 Learning from the responsive testing, in future developments it might be beneficial to design the application in mobile format first and build up from there. Although the game holds up on most smaller devices it looks markedly better on desktop, so if there was more time that is an area that would be a focus of improvement.
 
@@ -115,9 +116,9 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 
 **Answers Not Displaying** - An issue that took up a fair amount of time in the development process was the answers not displaying in the game area when the game was started in specific scenarios. After hours of comparing vales and types of data, the solution was simply that the buttons had to be reassigned on every game iteration.
 
-**Home/Back Icon** - In pages the home icon and back icon would not load the main menu. The reason for this was that the href in the a element was set from the position of the JavaScript file, and not from the index.html itself - where the JavaScript was inserting the html.
+**Home/Back Icon** - In pages the home icon and back icon would not load the main menu. The reason for this was that the file path in the a element was set from the position of the JavaScript file, and not from the index.html itself - where the JavaScript was inserting the html.
 
-**Hover Issues** - During the game the CSS hover pseudo class would not function as expected. The issue was related to the CSS alterations made by JavaScript taking precedent. The bug was resolved by adding classes with greater importance to the function, meaning that the hover had greater priority.
+**Hover Issues** - During the game the CSS hover pseudo class would not function as expected. The issue was related to the CSS alterations made by JavaScript taking precedent. The bug was resolved by adding classes with greater importance to the function, meaning that the hover had better priority.
 
 [Back to contents](#contents)
 
@@ -126,5 +127,7 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 **Correct Answer** - A bug that remains unresolved is that sometimes the correct answer sound will not play when it succeeds another correct answer. This does not happen every time however, and appears to be affected by how quickly the next answer is triggered.
 
 **Modal Position** - Throughout different viewport sizes, the modal will sometimes not appear in the center of the screen vertically.
+
+**Padlock** - The padlock icon in the difficulty selection are meant to start on a new line at the same point. There are instances where sometimes one padlock will break onto a new line before the other, upsetting the symmetry of the design.
 
 [Back to contents](#contents)

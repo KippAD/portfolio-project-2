@@ -1,15 +1,10 @@
 # **The Capitals of the World Quiz**
 
 ## **Brief**
-
 The Capitals of the World Quiz is a multiple choice quiz game that tests a user's knowledge of nation capitals throughout the world. The quiz includes 243 questions spread across three quiz difficulties and aims to provide the user with an engaging and challenging game experience.
-[Link to the live site]()
-
----
+[Link to the live site](https://kippad.github.io/portfolio-project-2/index.html)
 
 <p  align="center"><img  src="" alt="" width="75%"></p>
-
----
 
 ## Contents 
 - [UX (User Experience)](#ux-user-experience)
@@ -70,27 +65,31 @@ The Capitals of the World Quiz was designed to meet the UX objectives and ensure
 
 ## **Design**
 
-### **Inspiratione**
----
-The design of the application drew inspiration from old explorer maps from the 1800’s. The background was selected for its aged and haggard feeling, and the game panel is meant to look loosely like a telegram message that might have been found around the same time.
+### **Inspiration**
+
+<p  align="center">
+    <img  src="assets/readme-images/readme-map.jpeg" alt="The color scheme developed for the Capitals of the World Quiz" width="40%">
+    <img  src="assets/readme-images/telegraph.jpeg" alt="The color scheme developed for the Capitals of the World Quiz" width="40%">
+</p>
+
+The design of the application drew inspiration from old explorer maps from the 1800’s. The background was selected for its aged and haggard feeling, and the game panel is meant to look loosely like a telegraph message that might have been found around the same time. The design is simple and typography limited in order to reflect this.
 
 [Back to contents](#contents)
 
 ### **Color Scheme**
----
   
-<p  align="center"><img  src="" alt="The color scheme developed for the Capitals of the World Quiz" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/coolors.png" alt="The color scheme developed for the Capitals of the World Quiz" width="75%"></p>
 
-The colors on the application were generated with [**Coolors**](https://coolors.co/), and were chosen to complement the map and chosen aesthetic.
+The colors on the application were generated with [**Coolors**](https://coolors.co/) and were chosen to complement the map and aesthetic.
 
 [Back to contents](#contents)
 
 ### **Typography**
 ---
 
-<p  align="center"><img  src="" alt="An example of the inconsolata font" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/font.png" alt="An example of the inconsolata font" width="75%"></p>
 
-**Inconsolata** is the only font used in the application. This particular font was chosen due to its resemblance to the sort of typography seen on a telegram.
+**Inconsolata** is the only font used in the application. This particular font was chosen due to its resemblance to the sort of typography seen on a telegraph.
   
 [Back to contents](#contents)
  
@@ -111,7 +110,7 @@ The colors on the application were generated with [**Coolors**](https://coolors.
 ### **Main Menu**
 ---
 
-<p  align="center"><img  src="" alt="The Capitals of the World Quiz main menu" width="75%"></p> 
+<p  align="center"><img  src="assets/readme-images/main-menu.png" alt="The Capitals of the World Quiz main menu" width="75%"></p> 
 
 The main menu is the first thing that the user sees when loading the application and where they access all of the other areas.
 
@@ -123,22 +122,22 @@ The main menu is the first thing that the user sees when loading the application
 ### **Username Input**
 ---
 
-<p  align="center"><img  src="" alt="The username input area of the Capitals of the World Quiz" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/username.png" alt="The username input area of the Capitals of the World Quiz" width="75%"></p>
 
 From the main menu, the play button will take the user to a form area where a username and game difficulty is chosen.
 
 - A user can log a username which will be stored in local storage.
 - If a username exists, it will skip this area and take the user directly to the difficulty selection.
-- The username is logged with a user's high scores, which allows users to track their game record by accessing the scores page from the main menu.
+- The username is logged with a user's high scores, which allows them to track their game record by accessing the scores page from the main menu.
 
 **Difficulty Selection**
 ---
 
-<p  align="center"><img  src="" alt="The difficulty selection area of the Capitals of the World Quiz" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/difficulty.png" alt="The difficulty selection area of the Capitals of the World Quiz" width="75%"></p>
 The difficulty of the questions in the game can be changed in the difficulty selection area.
 
 - Three different levels of difficulty: Easy, Normal, Hard.
-- Normal and Hard difficulties are locked by default and are unlocked if 75% of questions are answered correctly in a quiz of the preceding difficulty..
+- Normal and Hard difficulties are locked by default and are unlocked if 75% of questions are answered correctly in a quiz of the preceding difficulty.
 - Upon loading the form with the correct score, the padlock is removed and the next difficulty playable.
 - The user can clear the existing name and its corresponding local data in order to revert back to the username input area.
 
@@ -146,22 +145,21 @@ The difficulty of the questions in the game can be changed in the difficulty sel
 ### **Game Area**
 ---
 
-<p  align="center"><img  src="" alt="The Capitals of the World Quiz game area" width="75%"></p>
-Once a difficulty is chosen the game area is loaded, where the questions and answers are generated.
+<p  align="center"><img  src="assets/readme-images/game.png" alt="The Capitals of the World Quiz game area" width="75%"></p>
+Once a difficulty is chosen the game area is loaded. This is where the questions and answers are generated.
 
 - The questions are shuffled ensuring that on each playthrough, the user will face a different selection of questions.
 - The answer buttons are filled with randomly selected answers from the collection of questions.
-- The correct answer replaces the content of a random answer button if it does not already exist.
-- Correct and incorrect answers are signified by the button changing color when clicked upon by the user before the next question is automatically loaded.
-- The counters on the page track the current question, the current count of correct answers, and the user's high score for that difficulty. (If the current score count exceeds the high score, then the high score counter is updated alongside the score counter).
-
+- The correct answer replaces one of the randomly generated answers if it does not already exist.
+- Correct and incorrect answers are signified by the button changing color when clicked upon by the user, before the next question is automatically loaded.
+- The counters on the page track the current question, the current count of correct answers, and the user's high score for that difficulty. (If the current score count exceeds the high score, then the high score counter incriments up alongside the score counter).
 
 ### **High Scores**
 ---
 
-<p  align="center"><img  src="" alt="The Capitals of the World Quiz high scores page" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/scores.png" alt="The Capitals of the World Quiz high scores page" width="75%"></p>
 
-The high score page is where a user can check their record on each of the game difficulties.
+The high score page is where a user can check their record for each of the game difficulties.
 - The user’s high score count is displayed for each of the difficulty levels.
 - A clear data button is included, allowing the user to wipe local data and return to the application’s main menu.
 
@@ -195,6 +193,8 @@ Throughout the application modals pop up to respond to, and confirm, user action
 Here are some examples for features that could be included in further development of the game.
 
 - **Multiple Users**: Multiple profiles can be stored on the game, meaning that two users can play on the same device without wiping the others data.
+
+- **More Modals Scenarios**: More modals to react to specific game scenarios, as under the current scope of the project the modal content remains quite generic.
 
 - **Choosing Quiz Length**: A user can choose longer or shorter quizzes to test themselves further.
 
@@ -247,12 +247,12 @@ Github pages was used to host the application:
 [Back to contents](#contents)
 
 ### **To clone the project**
-The repository can be cloned and continued by other developers:
+The repository can be cloned and evolved by other developers:
 
 1. In the selected repository open the **Code** drop down menu.
 <p  align="center"><img  src="assets/readme-images/clone-1.jpg" alt="Repository main page with settings highlighted" width="75%"></p>
 
-2. Copy the https url located in the **clone** box.
+2. Copy the https URL located in the **clone** box.
 <p  align="center"><img  src="assets/readme-images/clone-2.jpg" alt="Repository settings tab with pages button highlighted" width="75%"></p>
 
 3. Open the IDE of preference and paste the url in to a **git clone** command within a **Git Bash** terminal.
@@ -266,13 +266,24 @@ The repository can be cloned and continued by other developers:
 ## **Credits**
 
 ### Code
+The shuffle function in the script, also known as Fisher-Yates shuffle, was learnt following this tutorial:
+[*Link to Tutoria*](https://www.youtube.com/watch?v=myL4xmtAVtw&t=4s)
+
+By [**All Things JavaScript, LLC**](https://www.youtube.com/c/AllThingsJavaScriptLLC?app=desktop)
 
 [Back to contents](#contents)
 
 ### **Media**
+**Background** - The background image on the site was sourced from [**Freepik**](https://www.freepik.com/home) user [**Pikisuperstar**](https://www.freepik.com/pikisuperstar).
+[**Link to IMG**](https://www.freepik.com/free-vector/vintage-world-map-cartography-concept_5671433.htm#query=old%20map&position=29&from_view=search);
+
+**Sounds** - The sounds in the application were downloaded from open source library [**Mixkit**](https://mixkit.co/free-sound-effects/win/.)
 
 [Back to contents](#contents)
 
-### **Acknowledgments**  
+### **Acknowledgments**
+I want to thank my mentor Precious Ijege for the the guidance and invaluable advice throughout the development of this project.
+
+Similarly to my fellow students on slack, for all of the solutions and support that have helped me complete the application.
 
 [Back to contents](#contents)
