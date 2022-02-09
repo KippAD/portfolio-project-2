@@ -43,9 +43,9 @@ function enterUsername() {
   closeModal();
   if (!username) {
     gameArea.innerHTML = `
-      <form id="username-form" method="post">  
+      <form action="javascript:void(0);" id="username-form" method="post">  
           <label for="username">Please enter a Username:</label><br>
-          <input id="username" type="text" placeholder="Enter your username here..." required>
+          <input id="username" type="text" pattern="[a-zA-Z0-9]+" placeholder="Enter your username here..." required>
           <button type="submit" id="submit" class="btn">Submit <i class="fas fa-arrow-right"></i></button>
           <a id="back-btn" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
       </form>

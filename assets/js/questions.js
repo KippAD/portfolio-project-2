@@ -59,10 +59,6 @@ let easyQuestions = [{
     answer: "Stockholm",
   },
   {
-    question: "Denmark",
-    answer: "Copenhagen",
-  },
-  {
     question: "Norway",
     answer: "Oslo",
   },
@@ -349,8 +345,8 @@ let normalQuestions = [{
     answer: "Dhaka",
   },
   {
-    question: "Dili",
-    answer: "East Timor",
+    question: "East Timor",
+    answer: "Dili",
   },
   {
     question: "Cayman Islands",
