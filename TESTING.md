@@ -1,38 +1,3 @@
-
-
-
-### Jshint Validator (JavaScript)
-All four scripts were validated together with the Jshint validator.
-- **script.js**
-- **modals.js**
-- **sounds.js**
-- **questions.js**
-
-The validator initially showed 152 warnings. 
-
-<p  align="center"><img  src="assets/readme-images/js-errors.png" alt="Jshint validator initial results" width="75%"></p>
-
-Half of the warnings were first resolved by adding '**jshint esversion: 6**' to the top of the script - this specifies to the validator that the code uses ECMAScript 6 syntax. 
-
-The vast majority of the remaining warnings were related to misplaced semi-colons and a few were undeclared variables that had been missed in the development process. All unecessary semi-colons were removed and undeclared variables declared.
-
-<p  align="center"><img  src="assets/readme-images/js-final-error.png" alt="Jshint validator final warning" width="75%"></p>
-
-The final warning encountered was resolved by rearranging the order of the showAnswer function, ensuring that the function was declared outside the loop.
-
-All issues were resolved and the validator now returns no warnings:
-
-<p  align="center"><img  src="assets/readme-images/js-resolved.png" alt="Jshint validator final warning" width="75%"></p>
-
-## **Responsiveness**
-
-## **Browser Compatibility**
-
-## **Lighthouse Test**
-
-## **Bugs**
-
-
 # **Testing**
 
 ## Contents
@@ -123,6 +88,14 @@ Learning from the responsive testing, in future developments it might be benefic
 [Back to contents](#contents)
 
 ## **Browser Compatibility** 
+The Capitals of the World game has been tested on Google Chrome, Mozilla Firefox, Safari, and Opera. On each browser the game has been played through fully, every icon has been checked for functionality, the game has been tested on different viewport sizes, and links have been opened to ensure that they work correctly.
+
+**Chrome** - No discernable issues.
+**Mozilla Firefox** - No discernable issues.
+**Safari** - The game overall felt slower, and there was a delay to the sound playing.
+**Opera** - When not in full screen mode, game panel can spill over top and bottom of browser (Macbook).
+
+Accross all sites the game functionality is retained, links open correctly, and buttons and icons work as expected. In terms of aesthetic, the responsiveness is unaffected on all of the browsers except for Opera. Due to the sidebar on Opera, in some situations the sizing is skewed - this was discovered on the Macbook 13" used to develop the application. The only other noticable change accross the browsers was a delay to sounds playing on Safari, this made the game feel slower and less responsive to user actions.
 
 [Back to contents](#contents)
 
@@ -138,7 +111,7 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 
 ### **Resolved**
 
-**Answers Appearing Twice** - One of the main bugs throughout the development process was the issue of randomizing the answer options in the game. After trying different functions, the issue was finally resolved by selecting four random indexes and pushing their values to an array. By using the .includes() method, answers were prevented from appearing twice. The same method was then used for the correct answer where it would generate an index of which button to occupy, but would only execute if its value does not exist in the array.
+**Answers Appearing Twice** - One of the main bugs throughout the development process was the issue of randomizing the answer options in the game. After trying different functions, the issue was finally resolved by selecting four random indexes and pushing their values to an array. By using the .includes() method, answers were prevented from appearing twice. The same method was then used for the correct answer where it would generate an index of which button to occupy, but would only execute if its value does not exist in the array (Since the change, double answers have yet to reappear in testing).
 
 **Answers Not Displaying** - An issue that took up a fair amount of time in the development process was the answers not displaying in the game area when the game was started in specific scenarios. After hours of comparing vales and types of data, the solution was simply that the buttons had to be reassigned on every game iteration.
 
@@ -151,5 +124,7 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 ### **Unresolved**
 
 **Correct Answer** - A bug that remains unresolved is that sometimes the correct answer sound will not play when it succeeds another correct answer. This does not happen every time however, and appears to be affected by how quickly the next answer is triggered.
+
+**Modal Position** - Throughout different viewport sizes, the modal will sometimes not appear in the center of the screen vertically.
 
 [Back to contents](#contents)
