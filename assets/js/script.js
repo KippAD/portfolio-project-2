@@ -126,7 +126,7 @@ function runGame() {
       <button class="answer-btn btn">Answer4</button>
     </div> 
     <p class="bold">Current Score: <span id="scoreCounter"></span></p>
-    <p class="bold">High Score: <span id="highScoreCounter">0</span></p>
+    <p class="bold">High Score: <span id="highScoreCounter"></span></p>
   `;
   // Replaces home icon event listener whilst on game page
   homeIcon.removeEventListener('click', refreshPage);
@@ -264,8 +264,8 @@ function resetColors() {
 
 /** Sets high score counter to local storage value */ 
 function setHighScoreCounter() {
+  convertHighScore();
   highScoreCounter = document.getElementById('highScoreCounter');
-
   if (difficultySelection === 'easy') {
     highScoreCounter.innerHTML = localStorage.getItem('easyHighScore');
   } else if (difficultySelection === 'normal') {
@@ -297,6 +297,9 @@ function checkHighScore() {
 
 /** Ensures high score is always a number */ 
 function convertHighScore() {
+  easyHighScore = localStorage.getItem('easyHighScore');
+  normalHighScore = localStorage.getItem('normalHighScore');
+  hardHighScore = localStorage.getItem('hardHighScore');
  if (!easyHighScore) {
     easyHighScore = 0;
     localStorage.setItem("easyHighScore", easyHighScore);
