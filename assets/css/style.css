@@ -301,7 +301,7 @@ i:hover,
   border-radius: 15px;
   box-shadow: gray 0px 0px 5px;
   position: fixed;
-  top: 35%;
+  top: 30%;
   left: 35%;
   overflow: hidden;
   background-color: #ffffff;
@@ -342,7 +342,7 @@ i:hover,
   }
 
   to {
-    top: 35%;
+    top: 30%;
     opacity: 1
   }
 }
