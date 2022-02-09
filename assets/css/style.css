@@ -54,7 +54,6 @@ main {
 }
 
 #game-area>h2 {
-  width: 60%;
   font-size: 2.5rem;
   text-align: center;
 }
@@ -171,6 +170,7 @@ main {
 }
 
 #game-area>p {
+  text-align: center;
   font-size: 2.5rem;
 }
 
@@ -304,8 +304,8 @@ i:hover,
   top: 35%;
   left: 35%;
   overflow: hidden;
-  background-color: #7CDF64;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   text-align: center;
 
   animation: animationTop;
@@ -322,7 +322,6 @@ i:hover,
 
 #modalContent {
   padding-bottom: 12.5px;
-  color: #000000;
 }
 
 #modalContent>p {

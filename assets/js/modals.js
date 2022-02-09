@@ -24,11 +24,10 @@ function showModal() {
 
 /** Modal displayed upon quiz completion */
 function endQuizModal() {
-  modal.style.backgroundColor = "white";
-  modalTitle.innerHTML = "Quiz Complete!";
   if (scoreCounter < 9) {
+    modalTitle.innerHTML = "Game Over";
     modalContent.innerHTML = `
-    <p>Well done! You scored ${scoreCounter} out of 12 on the ${difficultySelection} quiz..</p>
+    <p>Close! You scored ${scoreCounter} out of 12 on the ${difficultySelection} quiz..</p>
     <p>You need to answer 9 questions correctly to complete the quiz.</p>
     <button id="menu-btn" class="btn">Main Menu</button>
     <button id="reset-quiz" class="btn">Try Again</button>
@@ -43,12 +42,14 @@ function endQuizModal() {
 // Different html to be displayed when user completes a quiz
 function quizCompletedModal() {
   if (difficultySelection === "hard") {
+    modalTitle.innerHTML = "Congratulations";
     modalContent.innerHTML = `
       <p>Well done! You scored ${scoreCounter} out of 12 on the ${difficultySelection} quiz..</p>
       <p>Congratulations, you have completed every quiz difficulty! You are a Capitals Master.</p>
       <button id="menu-btn" class="btn">Main Menu</button>
     `;
   } else {
+    modalTitle.innerHTML = "Well Done!";
     modalContent.innerHTML = `
     <p>Well done on completing the ${difficultySelection} quiz, you scored ${scoreCounter} out of 12.</p>
     <p>Your score means that you are eligible to play the next difficulty level!
