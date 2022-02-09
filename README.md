@@ -2,9 +2,10 @@
 
 ## **Brief**
 The Capitals of the World Quiz is a multiple choice quiz game that tests a user's knowledge of nation capitals throughout the world. The quiz includes 243 questions spread across three quiz difficulties and aims to provide the user with an engaging and challenging game experience.
+
 [Link to the live site](https://kippad.github.io/portfolio-project-2/index.html)
 
-<p  align="center"><img  src="" alt="" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/readme-main.png" alt="The Capitals of the World Quiz main menu" width="50%"></p>
 
 ## Contents 
 - [UX (User Experience)](#ux-user-experience)
@@ -52,7 +53,7 @@ The target audience for this project has the scope to be very broad. Some exampl
 [Back to contents](#contents)
 
 ### **Action Plan**
-The Capitals of the World Quiz was designed to meet the UX objectives and ensure that each of these target demographics has a positive experience
+The Capitals of the World Quiz was designed to meet the UX objectives and ensure that each of these target demographics has a positive experience:
  
 1. Navigation is clear so that users of all ages are able to move through the game easily. Where a user can initiate an action it is obvious and clearly marked with buttons and icons. Feedback is given to user actions through modals, elements responding to mouse, tooltips and sound effects.
 
@@ -77,8 +78,8 @@ The design of the application drew inspiration from old explorer maps from the 1
 [Back to contents](#contents)
 
 ### **Color Scheme**
-  
-<p  align="center"><img  src="assets/readme-images/coolors.png" alt="The color scheme developed for the Capitals of the World Quiz" width="75%"></p>
+---
+<img  src="assets/readme-images/coolors.png" alt="The color scheme developed for the Capitals of the World Quiz" width="100%">
 
 The colors on the application were generated with [**Coolors**](https://coolors.co/) and were chosen to complement the map and aesthetic.
 
@@ -87,7 +88,7 @@ The colors on the application were generated with [**Coolors**](https://coolors.
 ### **Typography**
 ---
 
-<p  align="center"><img  src="assets/readme-images/font.png" alt="An example of the inconsolata font" width="75%"></p>
+<p align="center"><img  src="assets/readme-images/font.png" alt="An example of the inconsolata font" width="75%"></p>
 
 **Inconsolata** is the only font used in the application. This particular font was chosen due to its resemblance to the sort of typography seen on a telegraph.
   
@@ -95,10 +96,21 @@ The colors on the application were generated with [**Coolors**](https://coolors.
  
 ### **Wireframes**
 ---
+[**Figma**](figma.com) was used to wireframe the design of the application.
 
-<p  align="center"><img  src="" alt="Wireframes of the capitals of the world quiz" width="75%"></p>
+##### **Main Menu**
+<img  src="assets/readme-images/menu-wireframe.png" alt="Wireframes of the main menu" width="100%">
 
-**Figma** was used to wireframe the design of the application.
+#### **Username**
+<img  src="assets/readme-images/username-wireframe.png" alt="Wireframes of the username area" width="100%">
+
+#### **Difficulty**
+<img  src="assets/readme-images/difficulty-wireframe.png" alt="Wireframes of the difficulty selection" width="100%">
+
+#### **Game Area**
+<img  src="assets/readme-images/game-wireframe.png" alt="Wireframes of the game area" width="100%">
+
+The wireframes were used as a guide throughout development. The final product does differ slightly in certain areas, but mostly stays true to the original vision of the project.
 
 [Back to contents](#contents)
 
@@ -110,31 +122,33 @@ The colors on the application were generated with [**Coolors**](https://coolors.
 ### **Main Menu**
 ---
 
-<p  align="center"><img  src="assets/readme-images/main-menu.png" alt="The Capitals of the World Quiz main menu" width="75%"></p> 
+<img  src="assets/readme-images/main-menu.png" alt="The Capitals of the World Quiz main menu" width="100%">
 
-The main menu is the first thing that the user sees when loading the application and where they access all of the other areas.
+The main menu is the first thing that the user sees when loading the application and acts as staging area from which all other areas are accessed.
 
 - The main title and subheading prioritizes explaining the purpose of the application to the user.
-- Menu buttons indicate navigation options to the user. (To initiate the game, to read the rules, and to check high scores).
+- Menu buttons indicate navigation options to the user (To initiate the game, to read the rules, and to check high scores).
 - The icons for home, sound, and social media are fixed to the panel and accessible from anywhere on the site.
 - The sound icon toggles game sounds on and off.
 
 ### **Username Input**
 ---
 
-<p  align="center"><img  src="assets/readme-images/username.png" alt="The username input area of the Capitals of the World Quiz" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/username.png" alt="The username input area of the Capitals of the World Quiz" width="100%"></p>
 
-From the main menu, the play button will take the user to a form area where a username and game difficulty is chosen.
+From the main menu, the play button will take the user to a form area where a username is entered into in an input.
 
 - A user can log a username which will be stored in local storage.
 - If a username exists, it will skip this area and take the user directly to the difficulty selection.
 - The username is logged with a user's high scores, which allows them to track their game record by accessing the scores page from the main menu.
+- The input is validated, preventing users for submitting empty values.
 
 **Difficulty Selection**
 ---
 
-<p  align="center"><img  src="assets/readme-images/difficulty.png" alt="The difficulty selection area of the Capitals of the World Quiz" width="75%"></p>
-The difficulty of the questions in the game can be changed in the difficulty selection area.
+<p  align="center"><img  src="assets/readme-images/difficulty.png" alt="The difficulty selection area of the Capitals of the World Quiz" width="100%"></p>
+
+The difficulty selection form is loaded once a username exists, allowing the user to select the question difficulty for the upcoming game.
 
 - Three different levels of difficulty: Easy, Normal, Hard.
 - Normal and Hard difficulties are locked by default and are unlocked if 75% of questions are answered correctly in a quiz of the preceding difficulty.
@@ -145,19 +159,20 @@ The difficulty of the questions in the game can be changed in the difficulty sel
 ### **Game Area**
 ---
 
-<p  align="center"><img  src="assets/readme-images/game.png" alt="The Capitals of the World Quiz game area" width="75%"></p>
-Once a difficulty is chosen the game area is loaded. This is where the questions and answers are generated.
+<p  align="center"><img  src="assets/readme-images/game.png" alt="The Capitals of the World Quiz game area" width="100%"></p>
+Once a difficulty is chosen the game area is loaded - this is where the questions and answers are generated.
 
-- The questions are shuffled ensuring that on each playthrough, the user will face a different selection of questions.
+- The questions are shuffled, ensuring that the user will face a different selection of questions on each playthrough.
 - The answer buttons are filled with randomly selected answers from the collection of questions.
 - The correct answer replaces one of the randomly generated answers if it does not already exist.
-- Correct and incorrect answers are signified by the button changing color when clicked upon by the user, before the next question is automatically loaded.
-- The counters on the page track the current question, the current count of correct answers, and the user's high score for that difficulty. (If the current score count exceeds the high score, then the high score counter incriments up alongside the score counter).
+- Correct and incorrect answers are signified by the button changing green or red when clicked on. 
+- The next question is automatically loaded after a two second timer.
+- The counters on the page track the current question, the current count of correct answers, and the user's high score for that difficulty (If the current score count exceeds the high score, then the high score counter incriments up alongside the score counter).
 
 ### **High Scores**
 ---
 
-<p  align="center"><img  src="assets/readme-images/scores.png" alt="The Capitals of the World Quiz high scores page" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/scores.png" alt="The Capitals of the World Quiz high scores page" width="100%"></p>
 
 The high score page is where a user can check their record for each of the game difficulties.
 - The user’s high score count is displayed for each of the difficulty levels.
@@ -166,9 +181,9 @@ The high score page is where a user can check their record for each of the game 
 ### **Sounds**
 ---
 
-<p  align="center"><img  src="" alt="Sound toggle for the Capitals of the World Quiz" width="75%"></p> 
+<p  align="center"><img  src="assets/readme-images/audio-icon.png" alt="Sound toggle for the Capitals of the World Quiz" width="50%"></p> 
 
-The game includes sound effects such as those that respond to user actions, or when modals appear to signify correct or incorrect answers. The icon appears at the top of the page through the application and controls the game’s sound effects.
+The game includes sound effects in response to user actions. The sound icon at the top of the page can be accessed throughout the application and controls the game’s sound effects.
 
 - Sound effects are triggered by button clicks, toggling the sound icon, modals appearing, and for correct and incorrect answers.
 - The sound icon is located at the top of the screen and is accessible to the user throughout the application.
@@ -177,7 +192,7 @@ The game includes sound effects such as those that respond to user actions, or w
 ### **Modals**
 ---  
 
-<p  align="center"><img  src="" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
+<p  align="center"><img  src="assets/readme-images/modals.png" alt="Modals that appear in the Capitals of the World Quiz" width="75%"></p>
 
 Throughout the application modals pop up to respond to, and confirm, user actions.
 
@@ -217,8 +232,10 @@ The Capitals of the World Quiz was built with the following technologies:
 6.  [**Codepen**](https://codepen.io) - For prototyping features before their implementation.
 7.  [**Figma**](https://figma.com/) - Used to wireframe the plan of the design.
 8.  [**Font Awesome**](https://fontawesome.com/) - Library used to import icons to the site.
-9.  [**Am I Responsive**](http://ami.responsivedesign.is/) - For responsive images of application in readme.
-10. [**Coolors**](https://coolors.co/) - Used to generate color pallete for the application.
+9.  [**Am I Responsive**](http://ami.responsivedesign.is/) - For responsive image at start of readme.
+10. [**Responsive Design Checker**](https://responsivedesignchecker.com/) - Source of many of the dimensions that responsiveness was tested on.
+11. [**Coolors**](https://coolors.co/) - Used to generate color pallete for the application.
+12. [**Real Favicon Generator**](https://realfavicongenerator.net/) - Used to create a favicon for the application.
 
 [Back to contents](#contents)
 
@@ -267,7 +284,7 @@ The repository can be cloned and evolved by other developers:
 
 ### Code
 The shuffle function in the script, also known as Fisher-Yates shuffle, was learnt following this tutorial:
-[*Link to Tutoria*](https://www.youtube.com/watch?v=myL4xmtAVtw&t=4s)
+[**Link to Tutorial**](https://www.youtube.com/watch?v=myL4xmtAVtw&t=4s)
 
 By [**All Things JavaScript, LLC**](https://www.youtube.com/c/AllThingsJavaScriptLLC?app=desktop)
 
@@ -282,7 +299,7 @@ By [**All Things JavaScript, LLC**](https://www.youtube.com/c/AllThingsJavaScrip
 [Back to contents](#contents)
 
 ### **Acknowledgments**
-I want to thank my mentor Precious Ijege for the the guidance and invaluable advice throughout the development of this project.
+I want to thank my mentor Precious Ijege for all of the the guidance and invaluable advice throughout the development of this project.
 
 Similarly to my fellow students on slack, for all of the solutions and support that have helped me complete the application.
 

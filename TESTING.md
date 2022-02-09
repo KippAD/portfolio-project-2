@@ -2,9 +2,9 @@
 
 ## Contents
 - [Validator Tests](#validator-tests)
-    - [HTML W3C Validator](#w3c-validator)
+    - [HTML W3C Validator](#html-w3c-validator)
     - [CSS Jigsaw Validator](#css-jigsaw-validator)
-    - [JavaScript Jshint Validator](#css-jigsaw-validator)
+    - [JavaScript Jshint Validator](#javascript-jshint-validator)
 - [Responsiveness](#responsiveness)
 - [Browser Compatibility](#browser-compatibility)
 - [Lighthouse Testing](#lighthouse-testing)
@@ -14,13 +14,13 @@
 
 ## Validator Tests
 
-### W3C Validator (HTML)
+### **HTML W3C Validator**
 ---
 The HTML of the Capitals of the World Quiz was tested using [**W3C HTML Validator**](https://validator.w3.org/). 
 
 <p  align="center"><img  src="assets/readme-images/html-errors.png" alt="Errors and warnings returned by the html w3c validator" width="50%"></p>
 
-**Index.html** - The validator returned four issues when checking the index.html page. Three of which were caused by an unclosed div tag. All issues were resolved by closing the element, with the only exception being an empty heading warning - this heading is intentionally empty so the warning was ignored.
+**Index.html** - The validator returned four issues when checking the index.html page, three of which were caused by an unclosed div tag. All issues were resolved by closing the element, with the only exception being an empty heading warning - this heading is intentionally empty so the warning was ignored.
 
 **Other HTML** - All html inserted into the document throughout the application was also tested:
 
@@ -37,7 +37,7 @@ All warnings returned by the validator have since been resolved and all HTML cod
 
 [Back to contents](#contents)
 
-### **Jigsaw Validator (CSS)**
+### **CSS Jigsaw Validator**
 ---
 The HTML of the Capitals of the World Quiz was tested using the [**Jigsaw CSS Validator**](https://jigsaw.w3.org/css-validator/). 
 
@@ -51,7 +51,7 @@ Both of these issues have since been resolved and the validator no longer shows 
 
 [Back to contents](#contents)
 
-## **Jshint Validator (JavaScript)**
+## **JavaScript Jshint Validator**
 ---
 The JavaScript of the Capitals of the World Quiz was tested using the [**Jshint Javascript Validator**](https://jshint.com/). 
 
@@ -61,7 +61,7 @@ The validator initially showed 152 warnings.
 
 Many of these were resolved by including '**jshint esversion: 6**' at the top of the script - this specifies to the validator that the code uses ECMAScript 6 syntax. 
 
-The vast majority of the remaining warnings were related to misplaced semi-colons and a few were undeclared variables that had been missed in the development process. All unecessary semi-colons were removed and undeclared variables declared.
+The vast majority of the remaining warnings were related to misplaced semi-colons and a few undeclared variables that had been missed in the development process. All unecessary semi-colons were removed and undeclared variables declared.
 
 <p  align="center"><img  src="assets/readme-images/js-final-error.png" alt="Jshint validator final warning" width="75%"></p>
 
@@ -81,8 +81,7 @@ The application is desktop first, meaning that it was designed to function at it
 
 The issue that kept returning seemed to be centering the modal in the middle of the screen vertically when it pops up - this was somewhat remedied through media queries but sometimes it will still appear slightly off center. Another issue stems from one of the padlock icons breaking to a second line before the other - this can knock the symmetry of the difficulty selection page. 
 
-// Fix this is time
-The application also struggled on very small mobile phones (320px width) during testing. Although still playable, the menu pushes icons off of the screen and can disjoint the whole page.
+The application did not maintain its design on very small mobile phones such as the iPhone 4 (320px width) during testing. Although still playable on the iPhone 5/5s, the menu pushes icons off of the screen and can disjoint the whole page. This could be a focus for future development, however within the current scope it was not a priority to add responsiveness for devices as old as the iPhone 3/4/4s.
 
 Learning from the responsive testing, in future developments it might be beneficial to design the application in mobile format first and build up from there. Although the game holds up on most smaller devices it looks markedly better on desktop, so if there was more time that is an area that would be a focus of improvement.
 
@@ -92,8 +91,11 @@ Learning from the responsive testing, in future developments it might be benefic
 The Capitals of the World game has been tested on Google Chrome, Mozilla Firefox, Safari, and Opera. On each browser the game has been played through fully, every icon has been checked for functionality, the game has been tested on different viewport sizes, and links have been opened to ensure that they work correctly.
 
 **Chrome** - No discernable issues.
+
 **Mozilla Firefox** - No discernable issues.
-**Safari** - The game overall felt slower, and there was a delay to the sound playing.
+
+**Safari** - The game overall felt slower and there was a delay to sounds playing.
+
 **Opera** - When not in full screen mode, game panel can spill over top and bottom of browser (Macbook).
 
 Accross all sites the game functionality is retained, links open correctly, and buttons and icons work as expected. In terms of aesthetic, the responsiveness is unaffected on all of the browsers except for Opera. Due to the sidebar on Opera, in some situations the sizing is skewed - this was discovered on the Macbook 13" used to develop the application. The only other noticable change accross the browsers was a delay to sounds playing on Safari, this made the game feel slower and less responsive to user actions.
@@ -112,9 +114,9 @@ The lighthouse testing initially showed worse SEO than expected - this issue was
 
 ### **Resolved**
 
-**Answers Appearing Twice** - One of the main bugs throughout the development process was the issue of randomizing the answer options in the game. After trying different functions, the issue was finally resolved by selecting four random indexes and pushing their values to an array. By using the .includes() method, answers were prevented from appearing twice. The same method was then used for the correct answer where it would generate an index of which button to occupy, but would only execute if its value does not exist in the array (Since the change, double answers have yet to reappear in testing).
+**Answers Appearing Twice** - One of the main bugs throughout the development process was the issue of randomizing the answer options in the game. After trying different functions, the issue was finally resolved by selecting four random indexes and pushing their values to an array. By using the .includes() method, answers were prevented from appearing twice. The same method was then used for the correct answer - an index of which answer button to fill is generated, but will only fill it if the correct answer does not already exist in the array of generated answers.
 
-**Answers Not Displaying** - An issue that took up a fair amount of time in the development process was the answers not displaying in the game area when the game was started in specific scenarios. After hours of comparing vales and types of data, the solution was simply that the buttons had to be reassigned on every game iteration.
+**Answers Not Displaying** - An issue that took up a fair amount of time in the development process was the answers not showing when the game was started at the end of a quiz. After hours of comparing values and types of data, the solution was simply that the buttons had to be reassigned on every game iteration.
 
 **Home/Back Icon** - In pages the home icon and back icon would not load the main menu. The reason for this was that the file path in the a element was set from the position of the JavaScript file, and not from the index.html itself - where the JavaScript was inserting the html.
 
