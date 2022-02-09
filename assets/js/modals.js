@@ -63,7 +63,6 @@ function quizCompletedModal() {
 /** Modal display when user attempts to clear data */
 function wipeModal() {
   modal.style.backgroundColor = "white";
-  modal.style.color = "black";
   modalTitle.innerHTML = "Are you sure?";
   modalContent.innerHTML = `
   <p>This action will clear all locally stored data, including high scores</p>
@@ -78,7 +77,6 @@ function wipeModal() {
 // Modal displayed when user clicks home icon in game area
 function goHomeModal() {
   modal.style.backgroundColor = "white";
-  modal.style.color = "black";
   modalTitle.innerHTML = "Are you sure?";
   modalContent.innerHTML = `
   <p>If you go home now you will lose all of your progress in this game.</p>
@@ -93,7 +91,6 @@ function goHomeModal() {
 /** The modal that displays when user tries to access the scores page without a stored username */
 function createUsernameModal() {
   modal.style.backgroundColor = "white";
-  modal.style.color = "black";
   modalTitle.innerHTML = "Sorry!";
   modalContent.innerHTML = `
   <p>Sorry, you need to enter a username to check the scores page!</p>

@@ -47,7 +47,7 @@ function enterUsername() {
           <label for="username">Please enter a Username:</label><br>
           <input id="username" type="text" placeholder="Enter your username here..." required>
           <button type="submit" id="submit" class="btn">Submit <i class="fas fa-arrow-right"></i></button>
-          <a id="back-btn" href="../../index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
+          <a id="back-btn" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
       </form>
     `;
     document.getElementById('submit').addEventListener('click', storeUsername);
@@ -75,7 +75,6 @@ function selectDifficulty() {
       <input type="radio" id="hardDifficulty" name="difficulty" value="hard">
       <label id="hardLabel" class="btn" for="hardDifficulty">Hard <span class="lockIcon"><i class="fas fa-lock"></i></span></label>
 
-      <a id="back-btn" href="../../index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
     </div>
     <button type="submit" id="play-btn" class="btn">Play <i class="fas fa-arrow-right"></i></button>
   `;
@@ -151,7 +150,7 @@ function loadRules() {
       <p>Simply click play, enter a username and choose a difficulty.</p>
       <p>To unlock harder quiz difficulties answer 9 or more correctly on the preceeding difficulty.</p>
       <button id="rules-play" class="menu-btn btn">Play</button>
-      <a id="back-btn" href="../../index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
+      <a id="back-btn" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
     </div>
   `;
   document.getElementById('rules-play').addEventListener('click', enterUsername);
@@ -171,7 +170,7 @@ function loadScores() {
       <p>Normal Quiz: ${localStorage.getItem('normalHighScore')}</p>
       <p>Hard Quiz: ${localStorage.getItem('hardHighScore')}</p>
       <button id="clearRecord" class="menu-btn btn">Clear Record</button>
-      <a id="back-btn" href="../../index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
+      <a id="back-btn" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i></a>
     </div>
   `;
   }
@@ -319,7 +318,6 @@ function convertHighScore() {
 function difficultyUnlocked() {
   let normalInput = document.getElementById('normalDifficulty');
   let hardInput = document.getElementById('hardDifficulty');
-
   let padlockIcon = document.getElementsByClassName('lockIcon');
 
   if (localStorage.getItem('easyHighScore') < 9) {
